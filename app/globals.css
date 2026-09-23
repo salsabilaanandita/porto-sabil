@@ -1,26 +1,344 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fafafa;
+    --surface: #ffffff;
+    --foreground: #111111;
+    --muted: #6e6e73;
+    --border: #e5e5ea;
+    --border-subtle: #f2f2f7;
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d1d1d6;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #aeaeb2;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Hexagon / Polygon clip path */
+.clip-hexagon {
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
 }
+
+.clip-rounded-hexagon {
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+}
+
+/* Infinite Floating Animations */
+@keyframes floatUpAndDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatSideWays {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(6px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(10px) translateX(-6px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatUpAndDown 5s ease-in-out infinite;
+}
+
+.animate-float-1 {
+  animation: floatSideWays 4.5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatReverse 5.5s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: floatUpAndDown 6s ease-in-out infinite 1s;
+}
+
+.animate-float-4 {
+  animation: floatSideWays 5s ease-in-out infinite 1.5s;
+}
+
+.animate-float-5 {
+  animation: floatReverse 4.8s ease-in-out infinite 0.5s;
+}
+
+/* Infinite Marquee Ticker */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeScrollReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollReverse 36s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Typewriter cursor blink */
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: cursorBlink 0.9s infinite;
+}
+
+/* Staggered entry animations */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Background Ambient Floating Blobs */
+@keyframes blobMove1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(40px, -50px) scale(1.08);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+}
+
+@keyframes blobMove2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-45px, 35px) scale(1.05);
+  }
+  66% {
+    transform: translate(30px, -40px) scale(0.92);
+  }
+}
+
+@keyframes blobMove3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(35px, 45px) scale(0.96);
+  }
+  66% {
+    transform: translate(-40px, -25px) scale(1.06);
+  }
+}
+
+.animate-blob-1 {
+  animation: blobMove1 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-blob-2 {
+  animation: blobMove2 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-blob-3 {
+  animation: blobMove3 26s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Background Watermark Drift & Shimmer */
+@keyframes watermarkFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-16px) translateX(12px);
+  }
+}
+
+@keyframes watermarkFloatReverse {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(14px) translateX(-10px);
+  }
+}
+
+.animate-watermark-1 {
+  animation: watermarkFloat 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-watermark-2 {
+  animation: watermarkFloatReverse 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Background Full-Bleed Running Marquee Streams */
+@keyframes bgMarqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes bgMarqueeScrollReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-bg-marquee {
+  display: flex;
+  width: max-content;
+  animation: bgMarqueeScroll 48s linear infinite;
+  will-change: transform;
+}
+
+.animate-bg-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: bgMarqueeScrollReverse 54s linear infinite;
+  will-change: transform;
+}
+
+/* Text Stroke & Background Watermark Typography */
+.text-stroke-bg {
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.08);
+  color: transparent;
+}
+
+.text-stroke-bg-bold {
+  -webkit-text-stroke: 2px rgba(17, 17, 17, 0.12);
+  color: transparent;
+}
+
+.text-stroke-blue-bg {
+  -webkit-text-stroke: 1.5px rgba(0, 113, 227, 0.25);
+  color: transparent;
+}
+
+/* Diagonal animated light beam */
+@keyframes lightSweep {
+  0% {
+    transform: translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(200%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.animate-light-sweep {
+  animation: lightSweep 18s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+
