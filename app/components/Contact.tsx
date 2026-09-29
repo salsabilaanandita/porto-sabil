@@ -24,9 +24,6 @@ import { PORTFOLIO_DATA } from "../data/portfolio-data";
 // Ganti ke "toast" kalau mau alert melayang di atas (gambar 3)
 const ALERT_STYLE: "card" | "toast" = "card";
 
-// Random string dari email aktivasi FormSubmit (menggantikan alamat email asli)
-const FORMSUBMIT_ID = "522f7777a4c01549cf0a9a9ff5420a9e";
-
 type Status = "idle" | "sending" | "success" | "error";
 
 export default function Contact() {
@@ -76,10 +73,14 @@ export default function Contact() {
       payload.append("_captcha", "false");
 
       const res = await fetch(
-        `https://formsubmit.co/ajax/${FORMSUBMIT_ID}`,
+        `https://formsubmit.co/ajax/${PORTFOLIO_DATA.personal.email}`,
         {
           method: "POST",
-          body: payload,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(Object.fromEntries(payload)),
           signal: controller.signal,
         }
       );
