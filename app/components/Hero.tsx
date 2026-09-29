@@ -146,20 +146,25 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Stats Grid with Single-Run Counting Numbers */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10 border-t border-[#e5e5ea] animate-fade-up animation-delay-500 opacity-0">
-          {PORTFOLIO_DATA.stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col hover:-translate-y-1 transition-transform duration-200 cursor-default"
-            >
-              <Counter targetValue={stat.value} suffix={stat.suffix} />
-              <span className="text-xs text-[#6e6e73] font-medium mt-1">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
+
+      {/* Stats Grid with Single-Run Counting Numbers */}
+      <div className="flex justify-center items-center gap-16 sm:gap-24 lg:gap-36 pt-10 border-t border-[#e5e5ea] animate-fade-up animation-delay-500 opacity-0">
+        {PORTFOLIO_DATA.stats.map((stat, idx) => (
+          <div
+            key={idx}
+            className="flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-200 cursor-default min-w-[100px]"
+          >
+            <Counter
+              targetValue={stat.value}
+              suffix={stat.suffix}
+            />
+
+            <span className="text-xs text-[#6e6e73] font-medium mt-1 whitespace-nowrap">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

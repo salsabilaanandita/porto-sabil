@@ -2,6 +2,7 @@
 
 import React from "react";
 import ScrollReveal from "./ScrollReveal";
+import Counter from "./Counter";
 import { PORTFOLIO_DATA } from "../data/portfolio-data";
 
 export default function About() {
@@ -136,20 +137,36 @@ export default function About() {
             </div>
           </ScrollReveal>
 
-          {/* GitHub Repository Stat */}
-          <ScrollReveal direction="up" delay={300}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <div className="p-4 sm:p-5 rounded-2xl bg-transparent border border-[#e5e5ea] hover:border-[#0071e3]/40 hover:bg-white/80 hover:-translate-y-1 active:scale-[0.98] transition-all duration-200 text-center sm:text-left">
-                <span className="text-2xl sm:text-3xl font-semibold font-mono text-[#111111] block mb-1">
-                  30+
-                </span>
+{/* GitHub Repository & Experience Stats */}
+<ScrollReveal direction="up" delay={300}>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+    
+    <div className="p-4 sm:p-5 rounded-2xl bg-transparent border border-[#e5e5ea] hover:border-[#0071e3]/40 hover:bg-white/80 hover:-translate-y-1 active:scale-[0.98] transition-all duration-200 text-center sm:text-left">
+      <Counter
+        targetValue={30}
+        suffix="+"
+        className="text-2xl sm:text-3xl font-semibold font-mono text-[#111111] block mb-1"
+      />
 
-                <span className="text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-[#6e6e73] block leading-tight">
-                  GitHub Repositories
-                </span>
-              </div>
-            </div>
-          </ScrollReveal>
+      <span className="text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-[#6e6e73] block leading-tight">
+        GitHub Repositories
+      </span>
+    </div>
+
+    <div className="p-4 sm:p-5 rounded-2xl bg-transparent border border-[#e5e5ea] hover:border-[#0071e3]/40 hover:bg-white/80 hover:-translate-y-1 active:scale-[0.98] transition-all duration-200 text-center sm:text-left">
+      <Counter
+        targetValue={1}
+        suffix=""
+        className="text-2xl sm:text-3xl font-semibold font-mono text-[#111111] block mb-1"
+      />
+
+      <span className="text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-[#6e6e73] block leading-tight">
+        Pengalaman PKL
+      </span>
+    </div>
+
+  </div>
+</ScrollReveal>
         </div>
       </div>
     </section>

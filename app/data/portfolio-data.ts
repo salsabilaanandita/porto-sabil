@@ -105,11 +105,6 @@ export const PORTFOLIO_DATA = {
       label: "Tahun Pendidikan",
     },
     {
-      value: 1,
-      suffix: "",
-      label: "Pengalaman PKL",
-    },
-    {
       value: 9,
       suffix: "+",
       label: "Sertifikat",
