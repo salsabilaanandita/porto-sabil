@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   keywords: [
     "Salsabila Anandita Putri",
     "Web Developer",
-    "Junior Web Developer",
+    "Full-Stack Developer",
     "Golang",
     "Node.js",
     "Laravel",
@@ -37,6 +37,11 @@ export const metadata: Metadata = {
     "REST API",
   ],
   authors: [{ name: "Salsabila Anandita Putri" }],
+  icons: {
+    icon: "/logo.png?v=2",
+    shortcut: "/logo.png?v=2",
+    apple: "/logo.png?v=2",
+  },
   openGraph: {
     title: "Salsabila Anandita Putri — Junior Web Developer",
     description:
@@ -44,7 +49,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
 
 export default function RootLayout({
   children,

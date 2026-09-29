@@ -11,6 +11,10 @@ export interface Project {
   stack?: string[];
   githubUrl: string;
   liveUrl?: string;
+  additionalLinks?: {
+    label: string;
+    url: string;
+  }[];
   featured?: boolean;
   highlights?: string[];
 }
@@ -191,6 +195,34 @@ export const PORTFOLIO_DATA = {
 
   projects: [
     {
+      id: "bookstore-app",
+      title: "Bookstore App (Pustaka)",
+      shortDesc:
+        "Aplikasi toko buku digital untuk menjelajahi katalog, membaca detail buku, dan mengelola koleksi bacaan.",
+      role: "Full Stack Developer",
+      year: "2026",
+      category: "Bookstore Platform",
+      description:
+        "Platform bookstore modern dengan frontend React.js dan backend Express.js yang terhubung ke Supabase untuk katalog buku, koleksi pengguna, serta pengalaman membaca yang terstruktur.",
+      image: "/projects/bookstore-app.jpg",
+      tags: [
+        "Bookstore",
+        "React.js",
+        "Express.js",
+        "Supabase",
+        "REST API",
+      ],
+      stack: ["React.js", "Express.js", "Supabase", "REST API"],
+      githubUrl: "https://github.com/salsabilaanandita/bookstore-app.git",
+      liveUrl: "https://bookstore-app-khaki.vercel.app/",
+      featured: true,
+      highlights: [
+        "Frontend bookstore interaktif berbasis React.js",
+        "Backend Express.js dengan REST API untuk kebutuhan aplikasi",
+        "Supabase sebagai database dan layanan data aplikasi",
+      ],
+    },
+    {
       id: "inventaris-app",
       title: "Inventaris App (INV-PRO)",
       shortDesc:
@@ -206,13 +238,13 @@ export const PORTFOLIO_DATA = {
         "Warehouse",
         "Laravel",
         "PHP",
-        "MySQL",
+        "PostgreSQL",
         "Tailwind",
         "REST API",
       ],
       stack: ["Laravel", "PHP", "MySQL", "Tailwind", "REST API"],
-      githubUrl: "https://github.com/salsabilaanandita/inventaris-ukk.git",
-      liveUrl: "",
+      githubUrl: "https://github.com/salsabilaanandita/inventaris-web.git",
+      liveUrl: "https://inventaris-web-nine.vercel.app/",
       featured: true,
       highlights: [
         "Dashboard analitik inventaris dengan tren transaksi 7 hari",
@@ -237,13 +269,13 @@ export const PORTFOLIO_DATA = {
         "Business",
         "Laravel",
         "PHP",
-        "MySQL",
+        "PostgreSQL",
         "Tailwind",
       ],
-      stack: ["Laravel", "PHP", "MySQL", "Tailwind"],
+      stack: ["Laravel", "PHP", "PostgreSQL", "Tailwind"],
       githubUrl:
-        "https://github.com/salsabilaanandita/inventaries-project-react.git",
-      liveUrl: "",
+        "https://github.com/salsabilaanandita/Website-Kasir.git",
+      liveUrl: "https://website-kasir-coral.vercel.app/",
       featured: true,
       highlights: [
         "Sistem POS transaksi kasir cepat dan pencatatan nota penjualan",

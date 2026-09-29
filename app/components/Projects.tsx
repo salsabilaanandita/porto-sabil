@@ -190,6 +190,18 @@ export default function Projects() {
                               <ExternalLink className="w-4 h-4" />
                             </a>
                           )}
+                          {project.additionalLinks?.map((link) => (
+                            <a
+                              key={link.url}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#e5e5ea] bg-white text-[#111111] hover:border-[#0071e3] hover:text-[#0071e3] text-xs sm:text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:scale-95 shadow-2xs"
+                            >
+                              <GithubIcon className="w-4 h-4" />
+                              <span>{link.label}</span>
+                            </a>
+                          ))}
                           <a
                             href={project.githubUrl}
                             target="_blank"

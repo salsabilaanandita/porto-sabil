@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import {
   ReactLogo,
@@ -32,33 +33,38 @@ import { skills } from "../data/portfolio-data";
 // Mapping of skill names to their authentic brand SVG logos and role subtitles
 const skillMetaMap: Record<
   string,
-  { Logo: React.ComponentType<{ className?: string }>; tag: string; dot: string }
+  {
+    Logo: React.ComponentType<{ className?: string }>;
+    image?: string;
+    tag: string;
+    dot: string;
+  }
 > = {
   "Next.js": { Logo: NextjsLogo, tag: "Full-Stack Framework", dot: "bg-black" },
   "Next.Js": { Logo: NextjsLogo, tag: "Full-Stack Framework", dot: "bg-black" },
   "React.js": { Logo: ReactLogo, tag: "UI Library", dot: "bg-[#00D8FF]" },
-  "TypeScript": { Logo: TypeScriptLogo, tag: "Strict Typed JS", dot: "bg-[#3178C6]" },
-  "JavaScript": { Logo: JavaScriptLogo, tag: "Web Programming", dot: "bg-[#F7DF1E]" },
-  "Golang": { Logo: GoLogo, tag: "Backend & Systems", dot: "bg-[#00ACD7]" },
+  "TypeScript": { Logo: TypeScriptLogo, image: "/ts.png", tag: "Strict Typed JS", dot: "bg-[#3178C6]" },
+  "JavaScript": { Logo: JavaScriptLogo, image: "/js.png", tag: "Web Programming", dot: "bg-[#F7DF1E]" },
+  "Golang": { Logo: GoLogo, image: "/golang.png", tag: "Backend & Systems", dot: "bg-[#00ACD7]" },
   "Bootstrap": { Logo: BootstrapLogo, tag: "CSS Framework", dot: "bg-[#7952B3]" },
   "Tailwind CSS": { Logo: TailwindLogo, tag: "Utility-First CSS", dot: "bg-[#38BDF8]" },
   "Vue.js": { Logo: VueLogo, tag: "Progressive Framework", dot: "bg-[#41B883]" },
   "Express": { Logo: ExpressLogo, tag: "Node.js Framework", dot: "bg-zinc-800" },
-  "Laravel": { Logo: LaravelLogo, tag: "PHP Web Framework", dot: "bg-[#FF2D20]" },
-  "PostgreSQL": { Logo: PostgreSQLLogo, tag: "Relational Database", dot: "bg-[#336791]" },
+  "Laravel": { Logo: LaravelLogo, image: "/laravel.png", tag: "PHP Web Framework", dot: "bg-[#FF2D20]" },
+  "PostgreSQL": { Logo: PostgreSQLLogo, image: "/postgresql.png", tag: "Relational Database", dot: "bg-[#336791]" },
   "Neon.tech": { Logo: NeonLogo, tag: "Serverless Postgres", dot: "bg-[#00E599]" },
-  "Lumen": { Logo: LumenLogo, tag: "Micro-Framework", dot: "bg-[#E24B2C]" },
+  "Lumen": { Logo: LumenLogo, image: "/lumen.png", tag: "Micro-Framework", dot: "bg-[#E24B2C]" },
   "REST APIs": { Logo: RestApiLogo, tag: "API Architecture", dot: "bg-[#0071E3]" },
-  "MySQL": { Logo: MySQLLogo, tag: "Relational Database", dot: "bg-[#00758F]" },
-  "MySql": { Logo: MySQLLogo, tag: "Relational Database", dot: "bg-[#00758F]" },
-  "MongoDB": { Logo: MongoDBLogo, tag: "Document Database", dot: "bg-[#47A248]" },
+  "MySQL": { Logo: MySQLLogo, image: "/mysql.png", tag: "Relational Database", dot: "bg-[#00758F]" },
+  "MySql": { Logo: MySQLLogo, image: "/mysql.png", tag: "Relational Database", dot: "bg-[#00758F]" },
+  "MongoDB": { Logo: MongoDBLogo, image: "/mongodb.png", tag: "Document Database", dot: "bg-[#47A248]" },
   "Git": { Logo: GitLogo, tag: "Version Control", dot: "bg-[#F05032]" },
   "GitHub": { Logo: GitHubLogo, tag: "Code Collaboration", dot: "bg-zinc-900" },
   "Vercel": { Logo: VercelLogo, tag: "Cloud Deployment", dot: "bg-black" },
-  "Laragon": { Logo: LaragonLogo, tag: "Local Dev Server", dot: "bg-[#0E83CD]" },
-  "VS Code": { Logo: VSCodeLogo, tag: "Code Editor", dot: "bg-[#007ACC]" },
-  "VsCode": { Logo: VSCodeLogo, tag: "Code Editor", dot: "bg-[#007ACC]" },
-  "Antigravity": { Logo: AntigravityLogo, tag: "Agentic AI IDE", dot: "bg-[#4285F4]" },
+  "Laragon": { Logo: LaragonLogo, image: "/laragon.jpg", tag: "Local Dev Server", dot: "bg-[#0E83CD]" },
+  "VS Code": { Logo: VSCodeLogo, image: "/vscode.jpg", tag: "Code Editor", dot: "bg-[#007ACC]" },
+  "VsCode": { Logo: VSCodeLogo, image: "/vscode.jpg", tag: "Code Editor", dot: "bg-[#007ACC]" },
+  "Antigravity": { Logo: AntigravityLogo, image: "/antigravity.jpg", tag: "Agentic AI IDE", dot: "bg-[#4285F4]" },
 };
 
 // Extract unique skills from user's skill list maintaining order
@@ -82,6 +88,7 @@ const allSkills = uniqueSkillNames.map((name) => {
     tag: meta.tag,
     dot: meta.dot,
     Logo: meta.Logo,
+    image: meta.image,
   };
 });
 
@@ -182,9 +189,19 @@ export default function Skills() {
           return (
             <ScrollReveal key={skill.name} direction="up" delay={idx * 15}>
               <div className="p-4 sm:p-5 rounded-2xl border border-[#e5e5ea] bg-white/80 backdrop-blur-md hover:bg-white hover:border-[#0071e3]/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg group flex flex-col items-center justify-center text-center cursor-default min-h-[145px]">
-                {/* Authentic Brand SVG Logo */}
-                <div className="w-12 h-12 rounded-2xl bg-[#f5f5f7] group-hover:bg-[#0071e3]/5 flex items-center justify-center transition-all duration-300 group-hover:scale-110 mb-3 shadow-xs">
-                  <LogoComponent className="w-8 h-8 transition-transform duration-300" />
+                {/* Brand logo */}
+                <div className="w-12 h-12 rounded-2xl bg-white group-hover:bg-[#f7fbff] flex items-center justify-center transition-all duration-300 group-hover:scale-110 mb-3 shadow-xs overflow-hidden">
+                  {skill.image ? (
+                    <Image
+                      src={skill.image}
+                      alt={`${skill.name} logo`}
+                      width={32}
+                      height={32}
+                      className="w-8 h-8 object-contain transition-transform duration-300"
+                    />
+                  ) : (
+                    <LogoComponent className="w-8 h-8 transition-transform duration-300" />
+                  )}
                 </div>
 
                 {/* Tech Name */}

@@ -12,7 +12,7 @@ const navItems = [
   { label: "Dokumentasi", href: "#gallery" },
   { label: "Pengalaman", href: "#experience" },
   { label: "Pendidikan", href: "#education" },
-  { label: "Kontak", href: "#contact" },
+  // { label: "Kontak", href: "#contact" },
 ];
 
 export default function Navbar() {
