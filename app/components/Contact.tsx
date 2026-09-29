@@ -56,17 +56,7 @@ export default function Contact() {
     const snapshot = { ...formData }; // cadangan kalau pengiriman gagal
     const subject = snapshot.subject.trim() || "Pesan dari Web Portfolio";
 
-    const payload = new FormData();
-    payload.append("name", snapshot.name.trim());
-    payload.append("email", snapshot.email.trim());
-    payload.append("subject", subject);
-    payload.append("message", snapshot.message.trim());
-    payload.append("_subject", subject);
-    payload.append("_template", "table"); // tampilan tabel seperti gambar 1
-    payload.append("_replyto", snapshot.email.trim());
-    payload.append("_captcha", "false");
-
-    // Langsung tampilkan sukses, tanpa menunggu server FormSubmit
+    // Langsung tampilkan sukses, kirim di background
     setStatus("success");
     setFormData({ name: "", email: "", subject: "", message: "" });
 
@@ -78,8 +68,19 @@ export default function Contact() {
         `https://formsubmit.co/ajax/${PORTFOLIO_DATA.personal.email}`,
         {
           method: "POST",
-          headers: { Accept: "application/json" },
-          body: payload,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: snapshot.name.trim(),
+            email: snapshot.email.trim(),
+            subject,
+            message: snapshot.message.trim(),
+            _subject: subject,
+            _template: "table", // tampilan tabel seperti gambar 1
+            _captcha: "false",
+          }),
           signal: controller.signal,
         }
       );
