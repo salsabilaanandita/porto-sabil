@@ -316,7 +316,7 @@ export const PORTFOLIO_DATA = {
         "Pelacakan target tabungan dan dana darurat secara real-time",
       ],
     },
-  ],
+  ] as Project[],
 
 
   gallery: [

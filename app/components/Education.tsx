@@ -2,19 +2,22 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { ExternalLink, X, Eye, ChevronLeft, ChevronRight } from "lucide-react";
-import { Document, Page, pdfjs } from "react-pdf";
 import ScrollReveal from "./ScrollReveal";
 import { PORTFOLIO_DATA, Certification } from "../data/portfolio-data";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.js",
-  import.meta.url
-).toString();
+const CertificatePdfViewer = dynamic(() => import("./CertificatePdfViewer"), {
+  ssr: false,
+  loading: () => (
+    <div className="p-10 text-center text-sm text-[#6e6e73]">
+      Memuat sertifikat...
+    </div>
+  ),
+});
 
 export default function Education() {
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
-  const [pdfPageCount, setPdfPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const ITEMS_PER_PAGE = 5;
 
@@ -304,28 +307,7 @@ export default function Education() {
             {/* PDF pages can be swiped horizontally on touch devices */}
             <div className="w-full rounded-xl overflow-hidden bg-[#f2f2f7] border border-[#e5e5ea] mb-6 shadow-sm">
               {selectedCert.pdfUrl ? (
-                <Document
-                  file={selectedCert.pdfUrl}
-                  onLoadSuccess={({ numPages }) => setPdfPageCount(numPages)}
-                  loading={<div className="p-10 text-center text-sm text-[#6e6e73]">Memuat sertifikat...</div>}
-                  error={<div className="p-10 text-center text-sm text-[#6e6e73]">PDF tidak dapat dimuat.</div>}
-                  className="flex max-h-[65vh] snap-x snap-mandatory overflow-x-auto overscroll-x-contain"
-                >
-                  {Array.from({ length: pdfPageCount }, (_, index) => (
-                    <div
-                      key={index + 1}
-                      className="flex min-w-full shrink-0 snap-center justify-center p-3 sm:p-5"
-                    >
-                      <Page
-                        pageNumber={index + 1}
-                        width={560}
-                        renderTextLayer={false}
-                        renderAnnotationLayer={false}
-                        className="max-w-full overflow-hidden rounded-md shadow-sm"
-                      />
-                    </div>
-                  ))}
-                </Document>
+                <CertificatePdfViewer file={selectedCert.pdfUrl} />
               ) : (
                 <div className="relative aspect-16/10">
                   <Image
