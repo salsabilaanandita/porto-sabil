@@ -59,38 +59,40 @@ export default function Contact() {
     const snapshot = { ...formData }; // cadangan kalau pengiriman gagal
     const subject = snapshot.subject.trim() || "Pesan dari Web Portfolio";
 
-    // Langsung tampilkan sukses, kirim di background
-    setStatus("success");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setStatus("sending");
 
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 30000);
 
     try {
+      const payload = new FormData();
+      payload.append("name", snapshot.name.trim());
+      payload.append("email", snapshot.email.trim());
+      payload.append("subject", subject);
+      payload.append("message", snapshot.message.trim());
+      payload.append("_subject", subject);
+      payload.append("_template", "table");
+      payload.append("_replyto", snapshot.email.trim());
+      payload.append("_captcha", "false");
+
       const res = await fetch(
         `https://formsubmit.co/ajax/${FORMSUBMIT_ID}`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: snapshot.name.trim(),
-            email: snapshot.email.trim(),
-            subject,
-            message: snapshot.message.trim(),
-            _subject: subject,
-            _template: "table", // tampilan tabel seperti gambar 1
-            _captcha: "false",
-          }),
+          body: payload,
           signal: controller.signal,
         }
       );
       const data = await res.json();
-      if (!res.ok || data.success === false || data.success === "false") {
+      if (
+        !res.ok ||
+        (data.success !== true && data.success !== "true")
+      ) {
         throw new Error(data.message || "Gagal mengirim pesan");
       }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch {
       // Gagal: kembalikan isi form dan tampilkan error
       setFormData(snapshot);

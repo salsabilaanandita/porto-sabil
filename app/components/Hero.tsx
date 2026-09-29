@@ -125,13 +125,13 @@ export default function Hero() {
               <div className="absolute -inset-4 bg-gradient-to-tr from-[#0071e3]/15 to-transparent rounded-3xl blur-2xl -z-10" />
 
               {/* Kotak Persegi dengan Border Radius Halus */}
-              <div className="relative w-full h-full rounded-[36px] overflow-hidden border-2 border-[#111111] shadow-2xl animate-float-slow transition-all duration-300 hover:scale-105 active:scale-98 cursor-pointer group bg-[#f0f0f3]">
+              <div className="relative w-full h-full rounded-[36px] overflow-hidden border border-[#111111] shadow-2xl animate-float-slow transition-all duration-300 hover:scale-105 active:scale-98 cursor-pointer group bg-[#f0f0f3]">
                 <Image
                   src={PORTFOLIO_DATA.personal.avatar || "/profile.jpg"}
                   alt={PORTFOLIO_DATA.personal.name}
                   fill
                   sizes="(max-width: 640px) 290px, 360px"
-                  className="object-cover object-[50%_8%] grayscale contrast-[1.05] group-hover:grayscale-0 group-active:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                  className="object-cover object-[50%_20%] grayscale contrast-[1.05] group-hover:grayscale-0 group-active:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                   priority
                 />
                 <div className="absolute bottom-3.5 inset-x-4 py-1.5 px-3 rounded-xl bg-black/75 backdrop-blur-md text-center text-white border border-white/10 shadow-sm transition-all duration-300 group-hover:bg-black/90">
