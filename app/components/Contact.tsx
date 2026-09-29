@@ -53,35 +53,46 @@ export default function Contact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    setStatus("sending");
+    const snapshot = { ...formData }; // cadangan kalau pengiriman gagal
+    const subject = snapshot.subject.trim() || "Pesan dari Web Portfolio";
+
+    const payload = new FormData();
+    payload.append("name", snapshot.name.trim());
+    payload.append("email", snapshot.email.trim());
+    payload.append("subject", subject);
+    payload.append("message", snapshot.message.trim());
+    payload.append("_subject", subject);
+    payload.append("_template", "table"); // tampilan tabel seperti gambar 1
+    payload.append("_replyto", snapshot.email.trim());
+    payload.append("_captcha", "false");
+
+    // Langsung tampilkan sukses, tanpa menunggu server FormSubmit
+    setStatus("success");
+    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+
     try {
       const res = await fetch(
         `https://formsubmit.co/ajax/${PORTFOLIO_DATA.personal.email}`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-            _subject: formData.subject || "Pesan dari Web Portfolio",
-            _template: "table", // tampilan tabel seperti gambar 1
-            _replyto: formData.email,
-            _captcha: "false",
-          }),
+          headers: { Accept: "application/json" },
+          body: payload,
+          signal: controller.signal,
         }
       );
       const data = await res.json();
-      if (!res.ok || data.success === "false") throw new Error("failed");
-
-      setStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      if (!res.ok || data.success === false || data.success === "false") {
+        throw new Error(data.message || "Gagal mengirim pesan");
+      }
     } catch {
+      // Gagal: kembalikan isi form dan tampilkan error
+      setFormData(snapshot);
       setStatus("error");
+    } finally {
+      clearTimeout(timeout);
     }
   };
 
