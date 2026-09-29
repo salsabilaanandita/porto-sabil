@@ -26,6 +26,19 @@ export interface Experience {
   location: string;
   period: string;
   description: string;
+  details?: {
+    overview: string;
+    projects: {
+      name: string;
+      description: string;
+      tools: string[];
+    }[];
+    responsibilities: string[];
+    evidenceImages?: {
+      src: string;
+      alt: string;
+    }[];
+  };
 }
 
 export interface Education {
@@ -355,6 +368,38 @@ export const PORTFOLIO_DATA = {
       period: "2025 — 2026",
       description:
         "Melaksanakan Praktik Kerja Lapangan (PKL) dengan tanggung jawab lintas divisi (Multi-Tasking) mencakup Quality Assurance (QA) & pengujian fungsionalitas aplikasi, analisis kebutuhan sistem (System Analyst) & penyusunan alur proses, pengembangan antarmuka web yang responsif (Frontend), serta implementasi logika server, basis data, dan integrasi RESTful API (Backend).",
+      details: {
+        overview:
+          "Pengalaman PKL lintas fungsi dalam Software Development, Quality Assurance, dan System Analysis untuk project internal perusahaan serta kebutuhan klien di sektor perbankan dan institusi keuangan.",
+        projects: [
+          {
+            name: "Bank Indonesia",
+            description:
+              "Melakukan functional testing pada website, memeriksa alur fitur, mengidentifikasi bug atau ketidaksesuaian, serta membantu penyesuaian tampilan antarmuka.",
+            tools: ["QA Testing", "Functional Testing", "HTML", "CSS"],
+          },
+          {
+            name: "Bank J Trust",
+            description:
+              "Melanjutkan pengembangan dan maintenance beberapa menu website menggunakan PHP CodeIgniter, menambahkan menu, menampilkan data dari API, dan menghubungkan data dengan tampilan.",
+            tools: ["PHP", "CodeIgniter", "REST API", "HTML", "CSS"],
+          },
+          {
+            name: "OJK / SIGAP",
+            description:
+              "Terlibat dalam analisis dan dokumentasi sistem dengan memahami alur proses serta kebutuhan sistem sesuai project.",
+            tools: ["System Analysis", "Dokumentasi", "Flowchart"],
+          },
+        ],
+        responsibilities: [
+          "Membuat dan menganalisis ERD, Class Diagram, serta Flowchart.",
+          "Melakukan QA dan functional testing sesuai requirement.",
+          "Melakukan konfigurasi dan pengelolaan PostgreSQL.",
+          "Membantu maintenance dan pengembangan fitur sistem berjalan.",
+          "Membuat serta memperbarui dokumentasi teknis project.",
+        ],
+        evidenceImages: [],
+      },
     },
   ],
 

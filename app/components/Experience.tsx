@@ -1,10 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
+import { X } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-import { PORTFOLIO_DATA } from "../data/portfolio-data";
+import { Experience as ExperienceData, PORTFOLIO_DATA } from "../data/portfolio-data";
 
 export default function Experience() {
+  const [selectedExperience, setSelectedExperience] = useState<ExperienceData | null>(null);
+
   return (
     <section id="experience" className="relative py-28 max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 border-t border-[#e5e5ea] overflow-hidden">
       {/* Static Full-Page Background Typography Watermark */}
@@ -51,7 +55,10 @@ export default function Experience() {
           const numberString = `0${idx + 1}`;
           return (
             <ScrollReveal key={exp.id} direction="up" delay={idx * 120}>
-              <div className="relative py-8 sm:py-10 border-b border-[#e5e5ea] transition-all duration-300 hover:-translate-y-1.5 active:scale-[0.99] group cursor-pointer overflow-hidden">
+              <div
+                onClick={() => exp.details && setSelectedExperience(exp)}
+                className="relative py-8 sm:py-10 border-b border-[#e5e5ea] transition-all duration-300 hover:-translate-y-1.5 active:scale-[0.99] group cursor-pointer overflow-hidden"
+              >
                 {/* Background Watermark Index Number per row */}
                 <div className="absolute right-4 bottom-2 -z-0 select-none pointer-events-none text-6xl sm:text-8xl font-mono font-black text-black/[0.03] group-hover:text-[#0071e3]/10 transition-colors duration-300">
                   {numberString}
@@ -102,6 +109,87 @@ export default function Experience() {
           );
         })}
       </div>
+
+      {selectedExperience?.details && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm sm:p-6">
+          <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-[#e5e5ea] bg-white p-6 shadow-2xl sm:p-8">
+            <button
+              type="button"
+              onClick={() => setSelectedExperience(null)}
+              aria-label="Tutup detail pengalaman"
+              className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-[#f2f2f7] text-[#111111] transition hover:bg-[#e5e5ea]"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            <div className="mb-8 pr-12">
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#0071e3]">
+                {selectedExperience.company} · {selectedExperience.period}
+              </span>
+              <h3 className="mt-2 text-2xl font-bold text-[#111111] sm:text-3xl">
+                {selectedExperience.role}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-[#6e6e73]">
+                {selectedExperience.details.overview}
+              </p>
+            </div>
+
+            <div className="grid gap-8 lg:grid-cols-2">
+              <div>
+                <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#111111]">
+                  Project &amp; Kontribusi
+                </h4>
+                <div className="space-y-5">
+                  {selectedExperience.details.projects.map((project) => (
+                    <div key={project.name} className="border-l-2 border-[#0071e3] pl-4">
+                      <h5 className="font-bold text-[#111111]">{project.name}</h5>
+                      <p className="mt-1 text-sm leading-relaxed text-[#6e6e73]">
+                        {project.description}
+                      </p>
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {project.tools.map((tool) => (
+                          <span
+                            key={tool}
+                            className="rounded-md bg-[#f2f2f7] px-2 py-1 font-mono text-[10px] text-[#6e6e73]"
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#111111]">
+                  Tanggung Jawab
+                </h4>
+                <ul className="space-y-3 text-sm leading-relaxed text-[#6e6e73]">
+                  {selectedExperience.details.responsibilities.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0071e3]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 border-t border-[#e5e5ea] pt-6">
+              {selectedExperience.details.evidenceImages?.length ? (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {selectedExperience.details.evidenceImages.map((image) => (
+                    <div key={image.src} className="relative aspect-video overflow-hidden rounded-xl border border-[#e5e5ea] bg-[#f2f2f7]">
+                      <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
