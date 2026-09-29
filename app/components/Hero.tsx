@@ -7,8 +7,6 @@ import {
   GithubIcon,
   LinkedinIcon,
   InstagramIcon,
-  DiscordIcon,
-  TwitterIcon,
 } from "./Icons";
 import Counter from "./Counter";
 import { PORTFOLIO_DATA } from "../data/portfolio-data";
@@ -96,24 +94,6 @@ export default function Hero() {
                 className="p-2.5 rounded-full border border-[#e5e5ea] bg-transparent hover:bg-white text-[#6e6e73] hover:text-rose-500 hover:border-rose-400/40 transition-all hover:-translate-y-1 active:scale-95"
               >
                 <InstagramIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={PORTFOLIO_DATA.personal.discord}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Discord"
-                className="p-2.5 rounded-full border border-[#e5e5ea] bg-transparent hover:bg-white text-[#6e6e73] hover:text-indigo-400 hover:border-indigo-400/40 transition-all hover:-translate-y-1 active:scale-95"
-              >
-                <DiscordIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={PORTFOLIO_DATA.personal.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter / X"
-                className="p-2.5 rounded-full border border-[#e5e5ea] bg-transparent hover:bg-white text-[#6e6e73] hover:text-[#111111] hover:border-[#111111]/40 transition-all hover:-translate-y-1 active:scale-95"
-              >
-                <TwitterIcon className="w-4 h-4" />
               </a>
             </div>
           </div>

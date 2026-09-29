@@ -92,11 +92,8 @@ export const PORTFOLIO_DATA = {
     email: "salsabilaananditaputri@gmail.com",
 
     github: "https://github.com/salsabilaanandita",
-    linkedin: "https://linkedin.com/in/salsabila-ananditaputri",
+    linkedin: "https://www.linkedin.com/in/salsabilaananditaputri/",
     instagram: "https://instagram.com/_ssalsabiill",
-
-    discord: "",
-    twitter: "",
 
     location: "Bogor, Indonesia",
   },

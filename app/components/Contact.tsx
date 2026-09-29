@@ -15,8 +15,6 @@ import {
   GithubIcon,
   LinkedinIcon,
   InstagramIcon,
-  DiscordIcon,
-  TwitterIcon,
 } from "./Icons";
 import ScrollReveal from "./ScrollReveal";
 import { PORTFOLIO_DATA } from "../data/portfolio-data";
@@ -268,24 +266,6 @@ export default function Contact() {
                 className={`${socialBase} hover:bg-rose-500 hover:border-rose-500`}
               >
                 <InstagramIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={PORTFOLIO_DATA.personal.discord}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Discord"
-                className={`${socialBase} hover:bg-[#5865F2] hover:border-[#5865F2]`}
-              >
-                <DiscordIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={PORTFOLIO_DATA.personal.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter / X"
-                className={`${socialBase} hover:bg-black hover:border-black`}
-              >
-                <TwitterIcon className="w-4 h-4" />
               </a>
             </div>
           </ScrollReveal>
