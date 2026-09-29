@@ -24,6 +24,9 @@ import { PORTFOLIO_DATA } from "../data/portfolio-data";
 // Ganti ke "toast" kalau mau alert melayang di atas (gambar 3)
 const ALERT_STYLE: "card" | "toast" = "card";
 
+// Access key Web3Forms (dari project kedua kamu)
+const WEB3FORMS_ACCESS_KEY = "89f41349-cbe8-4003-9ac5-f46624a896e1";
+
 type Status = "idle" | "sending" | "success" | "error";
 
 export default function Contact() {
@@ -35,6 +38,7 @@ export default function Contact() {
     message: "",
   });
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   // Toast otomatis hilang setelah 4 detik
   useEffect(() => {
@@ -53,50 +57,51 @@ export default function Contact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    const snapshot = { ...formData }; // cadangan kalau pengiriman gagal
-    const subject = snapshot.subject.trim() || "Pesan dari Web Portfolio";
-
     setStatus("sending");
+    setErrorMsg("");
 
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 30000);
+    const timeout = setTimeout(() => controller.abort(), 15000);
 
     try {
-      const payload = new FormData();
-      payload.append("name", snapshot.name.trim());
-      payload.append("email", snapshot.email.trim());
-      payload.append("subject", subject);
-      payload.append("message", snapshot.message.trim());
-      payload.append("_subject", subject);
-      payload.append("_template", "table");
-      payload.append("_replyto", snapshot.email.trim());
-      payload.append("_captcha", "false");
+      const subject = formData.subject.trim() || "Pesan dari Web Portfolio";
 
-      const res = await fetch(
-        `https://formsubmit.co/ajax/${PORTFOLIO_DATA.personal.email}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(Object.fromEntries(payload)),
-          signal: controller.signal,
-        }
-      );
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject,
+          message: formData.message.trim(),
+          from_name: "Web Portfolio",
+          replyto: formData.email.trim(),
+        }),
+        signal: controller.signal,
+      });
+
       const data = await res.json();
-      if (
-        !res.ok ||
-        (data.success !== true && data.success !== "true")
-      ) {
-        throw new Error(data.message || "Gagal mengirim pesan");
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || `Error ${res.status}`);
       }
 
       setStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch {
-      // Gagal: kembalikan isi form dan tampilkan error
-      setFormData(snapshot);
+    } catch (err) {
+      console.error("Web3Forms error:", err);
+      const isTimeout = err instanceof DOMException && err.name === "AbortError";
+      setErrorMsg(
+        isTimeout
+          ? "Koneksi terlalu lama. Coba lagi ya."
+          : err instanceof Error
+          ? err.message
+          : "Terjadi kesalahan."
+      );
       setStatus("error");
     } finally {
       clearTimeout(timeout);
@@ -335,7 +340,12 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {status === "error" && (
                     <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs sm:text-sm">
-                      Gagal mengirim pesan. Periksa koneksi lalu coba lagi.
+                      <p className="font-semibold">Gagal mengirim pesan.</p>
+                      {errorMsg && (
+                        <p className="mt-1 font-mono text-[11px] opacity-80">
+                          {errorMsg}
+                        </p>
+                      )}
                     </div>
                   )}
 
