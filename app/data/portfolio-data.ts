@@ -321,6 +321,34 @@ export const PORTFOLIO_DATA = {
         "Pelacakan target tabungan dan dana darurat secara real-time",
       ],
     },
+    {
+      id: "coffe-next",
+      title: "Kopi Rengkuh — Kafe & Roastery Jakarta",
+      shortDesc:
+        "Aplikasi katalog menu dan profil kedai kopi interaktif yang berfokus pada frontend UI/UX modern.",
+      role: "Frontend Developer",
+      year: "2026",
+      category: "Frontend Web Application",
+      description:
+        "Sebuah project aplikasi frontend untuk kedai kopi (coffee shop) yang dibangun menggunakan Next.js. Aplikasi ini menyajikan antarmuka pengguna yang menarik, responsif, dan dinamis, menampilkan katalog menu kopi secara interaktif. Dibangun khusus di sisi klien (frontend-only).",
+      image: "/projects/coffe.jpg",
+      tags: [
+        "Coffee Shop",
+        "Frontend",
+        "Next.js",
+        "React.js",
+        "Tailwind CSS",
+      ],
+      stack: ["Next.js", "React.js", "Tailwind CSS"],
+      githubUrl: "https://github.com/salsabilaanandita/coffe-next.git",
+      liveUrl: "https://coffe-next-zeta.vercel.app/",
+      featured: true,
+      highlights: [
+        "Antarmuka frontend interaktif dan responsif menggunakan Next.js",
+        "Desain UI/UX modern dan estetik untuk kedai kopi",
+        "Katalog menu kopi interaktif tanpa integrasi backend",
+      ],
+    },
   ] as Project[],
 
 
