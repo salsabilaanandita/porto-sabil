@@ -147,23 +147,26 @@ export default function Hero() {
         </div>
 
 
-      {/* Stats Grid with Single-Run Counting Numbers */}
-      <div className="flex justify-center items-center gap-16 sm:gap-24 lg:gap-36 pt-10 border-t border-[#e5e5ea] animate-fade-up animation-delay-500 opacity-0">
-        {PORTFOLIO_DATA.stats.map((stat, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-200 cursor-default min-w-[100px]"
-          >
-            <Counter
-              targetValue={stat.value}
-              suffix={stat.suffix}
-            />
+      {/* Stats Grid with Balanced Full-Width Distribution */}
+      <div className="w-full pt-12 mt-2 border-t border-[#e5e5ea] animate-fade-up animation-delay-500 opacity-0">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 w-full max-w-5xl xl:max-w-6xl mx-auto">
+          {PORTFOLIO_DATA.stats.map((stat, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col items-center text-center py-3 px-4 rounded-2xl hover:bg-black/[0.02] hover:-translate-y-1 transition-all duration-200 cursor-default group"
+            >
+              <Counter
+                targetValue={stat.value}
+                suffix={stat.suffix}
+                className="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#111111] tracking-tight font-display group-hover:text-[#0071e3] transition-colors"
+              />
 
-            <span className="text-xs text-[#6e6e73] font-medium mt-1 whitespace-nowrap">
-              {stat.label}
-            </span>
-          </div>
-        ))}
+              <span className="text-xs sm:text-sm text-[#6e6e73] font-medium mt-2 tracking-wide whitespace-nowrap">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

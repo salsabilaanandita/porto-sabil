@@ -100,9 +100,9 @@ export const PORTFOLIO_DATA = {
 
   stats: [
     {
-      value: 3,
-      suffix: "+",
-      label: "Tahun Pendidikan",
+      value: 6,
+      suffix: "",
+      label: "Proyek",
     },
     {
       value: 9,
@@ -114,7 +114,11 @@ export const PORTFOLIO_DATA = {
       suffix: "+",
       label: "Teknologi",
     },
-
+    {
+      value: 30,
+      suffix: "+",
+      label: "Bug Ditemukan",
+    },
   ],
 
   floatingSkills: [
@@ -200,31 +204,93 @@ export const PORTFOLIO_DATA = {
 
   projects: [
     {
-      id: "bookstore-app",
-      title: "Bookstore App (Pustaka)",
+      id: "coffe-next",
+      title: "Kopi Rengkuh — Kafe & Roastery Jakarta",
       shortDesc:
-        "Aplikasi toko buku digital untuk menjelajahi katalog, membaca detail buku, dan mengelola koleksi bacaan.",
-      role: "Full Stack Developer",
+        "Aplikasi katalog menu dan profil kedai kopi interaktif yang berfokus pada frontend UI/UX modern.",
+      role: "Frontend Developer",
       year: "2026",
-      category: "Bookstore Platform",
+      category: "Frontend Web Application",
       description:
-        "Platform bookstore modern dengan frontend React.js dan backend Express.js yang terhubung ke Supabase untuk katalog buku, koleksi pengguna, serta pengalaman membaca yang terstruktur.",
-      image: "/projects/bookstore-app.jpg",
+        "Sebuah project aplikasi frontend untuk kedai kopi (coffee shop) yang dibangun menggunakan Next.js. Aplikasi ini menyajikan antarmuka pengguna yang menarik, responsif, dan dinamis, menampilkan katalog menu kopi secara interaktif. Dibangun khusus di sisi klien (frontend-only).",
+      image: "/projects/coffe.jpg",
       tags: [
-        "Bookstore",
+        "Coffee Shop",
+        "Frontend",
+        "Next.js",
         "React.js",
-        "Express.js",
-        "Supabase",
-        "REST API",
+        "Tailwind CSS",
       ],
-      stack: ["React.js", "Express.js", "Supabase", "REST API"],
-      githubUrl: "https://github.com/salsabilaanandita/bookstore-app.git",
-      liveUrl: "https://bookstore-app-khaki.vercel.app/",
+      stack: ["Next.js", "React.js", "Tailwind CSS"],
+      githubUrl: "https://github.com/salsabilaanandita/coffe-next.git",
+      liveUrl: "https://coffe-next-zeta.vercel.app/",
       featured: true,
       highlights: [
-        "Frontend bookstore interaktif berbasis React.js",
-        "Backend Express.js dengan REST API untuk kebutuhan aplikasi",
-        "Supabase sebagai database dan layanan data aplikasi",
+        "Antarmuka frontend interaktif dan responsif menggunakan Next.js",
+        "Desain UI/UX modern dan estetik untuk kedai kopi",
+        "Katalog menu kopi interaktif tanpa integrasi backend",
+      ],
+    },
+    {
+      id: "money-tracker-app",
+      title: "Money Tracker App",
+      shortDesc:
+        "Aplikasi pencatatan keuangan pribadi (personal finance) dengan dashboard analisis arus kas.",
+      role: "Full Stack Developer",
+      year: "2026",
+      category: "Personal Finance",
+      description:
+        "Aplikasi pencatatan keuangan pribadi (personal finance) berbasis web yang dirancang untuk melacak pemasukan, pengeluaran, wallet balance, budget bulanan, serta progres target tabungan secara real-time. Dilengkapi visualisasi grafik arus kas yang interaktif.",
+      image: "/projects/money-tracker.png",
+      tags: [
+        "Personal Finance",
+        "Management",
+        "Dashboard",
+        "Next.js",
+        "Golang",
+        "Tailwind",
+        "PostgreSQL",
+        "REST API",
+      ],
+      stack: ["Next.js", "Golang", "Tailwind", "PostgreSQL", "REST API"],
+      githubUrl: "https://github.com/salsabilaanandita/web-money-tracker",
+      liveUrl: "https://web-moneytracker.netlify.app/login",
+      featured: true,
+      highlights: [
+        "Dashboard interaktif untuk memantau total saldo, pemasukan, dan pengeluaran",
+        "Visualisasi grafik (charts) arus kas harian, mingguan, dan bulanan",
+        "Pencatatan pengeluaran berdasarkan kategori tertentu",
+        "Pelacakan target tabungan dan dana darurat secara real-time",
+      ],
+    },
+    {
+      id: "chatbot-gemini-ai",
+      title: "Chatbot AI — Gemini AI Chatbot",
+      shortDesc:
+        "Aplikasi Chatbot AI berbasis Express.js dan Gemini 3.5 Flash dengan fitur streaming respons real-time (SSE) dan analisis berkas multimodal.",
+      role: "Full Stack Developer",
+      year: "2026",
+      category: "AI & Web Application",
+      description:
+        "Aplikasi Chatbot AI interaktif cerdas yang dibangun menggunakan Express.js, Node.js, dan Google Gemini API (model Gemini 3.5 Flash). Memiliki fitur streaming response real-time menggunakan Server-Sent Events (SSE), dukungan multimodal upload berkas (PDF, gambar, audio), sistem riwayat multi-sesi percakapan, pencarian histori chat, serta antarmuka modern dengan dukungan tema gelap dan terang.",
+      image: "/projects/chatbot.png",
+      tags: [
+        "Chatbot AI",
+        "Gemini 3.5 Flash",
+        "Express.js",
+        "Node.js",
+        "REST API",
+        "Multimodal",
+        "Tailwind",
+      ],
+      stack: ["Express.js", "Node.js", "Gemini 3.5 Flash", "REST API", "Tailwind CSS"],
+      githubUrl: "https://github.com/salsabilaanandita/chatbot.git",
+      liveUrl: "https://chatbot-psi-five-28.vercel.app/",
+      featured: true,
+      highlights: [
+        "Backend Express.js dengan integrasi Google Gemini 3.5 Flash API",
+        "Real-time streaming respons (SSE) dan pemrosesan berkas multimodal (PDF/Gambar/Audio)",
+        "Manajemen multi-sesi percakapan, pencarian histori chat, dan tema dark/light mode",
       ],
     },
     {
@@ -290,63 +356,31 @@ export const PORTFOLIO_DATA = {
       ],
     },
     {
-      id: "money-tracker-app",
-      title: "Money Tracker App",
+      id: "bookstore-app",
+      title: "Bookstore App (Pustaka)",
       shortDesc:
-        "Aplikasi pencatatan keuangan pribadi (personal finance) dengan dashboard analisis arus kas.",
+        "Aplikasi toko buku digital untuk menjelajahi katalog, membaca detail buku, dan mengelola koleksi bacaan.",
       role: "Full Stack Developer",
       year: "2026",
-      category: "Personal Finance",
+      category: "Bookstore Platform",
       description:
-        "Aplikasi pencatatan keuangan pribadi (personal finance) berbasis web yang dirancang untuk melacak pemasukan, pengeluaran, wallet balance, budget bulanan, serta progres target tabungan secara real-time. Dilengkapi visualisasi grafik arus kas yang interaktif.",
-      image: "/projects/money-tracker.png",
+        "Platform bookstore modern dengan frontend React.js dan backend Express.js yang terhubung ke Supabase untuk katalog buku, koleksi pengguna, serta pengalaman membaca yang terstruktur.",
+      image: "/projects/bookstore-app.jpg",
       tags: [
-        "Personal Finance",
-        "Management",
-        "Dashboard",
-        "Next.js",
-        "Golang",
-        "Tailwind",
-        "PostgreSQL",
+        "Bookstore",
+        "React.js",
+        "Express.js",
+        "Supabase",
         "REST API",
       ],
-      stack: ["Next.js", "Golang", "Tailwind", "PostgreSQL", "REST API"],
-      githubUrl: "https://github.com/salsabilaanandita/web-money-tracker",
-      liveUrl: "https://web-moneytracker.netlify.app/login",
+      stack: ["React.js", "Express.js", "Supabase", "REST API"],
+      githubUrl: "https://github.com/salsabilaanandita/bookstore-app.git",
+      liveUrl: "https://bookstore-app-khaki.vercel.app/",
       featured: true,
       highlights: [
-        "Dashboard interaktif untuk memantau total saldo, pemasukan, dan pengeluaran",
-        "Visualisasi grafik (charts) arus kas harian, mingguan, dan bulanan",
-        "Pencatatan pengeluaran berdasarkan kategori tertentu",
-        "Pelacakan target tabungan dan dana darurat secara real-time",
-      ],
-    },
-    {
-      id: "coffe-next",
-      title: "Kopi Rengkuh — Kafe & Roastery Jakarta",
-      shortDesc:
-        "Aplikasi katalog menu dan profil kedai kopi interaktif yang berfokus pada frontend UI/UX modern.",
-      role: "Frontend Developer",
-      year: "2026",
-      category: "Frontend Web Application",
-      description:
-        "Sebuah project aplikasi frontend untuk kedai kopi (coffee shop) yang dibangun menggunakan Next.js. Aplikasi ini menyajikan antarmuka pengguna yang menarik, responsif, dan dinamis, menampilkan katalog menu kopi secara interaktif. Dibangun khusus di sisi klien (frontend-only).",
-      image: "/projects/coffe.jpg",
-      tags: [
-        "Coffee Shop",
-        "Frontend",
-        "Next.js",
-        "React.js",
-        "Tailwind CSS",
-      ],
-      stack: ["Next.js", "React.js", "Tailwind CSS"],
-      githubUrl: "https://github.com/salsabilaanandita/coffe-next.git",
-      liveUrl: "https://coffe-next-zeta.vercel.app/",
-      featured: true,
-      highlights: [
-        "Antarmuka frontend interaktif dan responsif menggunakan Next.js",
-        "Desain UI/UX modern dan estetik untuk kedai kopi",
-        "Katalog menu kopi interaktif tanpa integrasi backend",
+        "Frontend bookstore interaktif berbasis React.js",
+        "Backend Express.js dengan REST API untuk kebutuhan aplikasi",
+        "Supabase sebagai database dan layanan data aplikasi",
       ],
     },
   ] as Project[],
@@ -395,8 +429,8 @@ export const PORTFOLIO_DATA = {
           {
             name: "Bank Indonesia",
             description:
-              "Melakukan functional testing pada website, memeriksa alur fitur, mengidentifikasi bug atau ketidaksesuaian, serta membantu penyesuaian tampilan antarmuka.",
-            tools: ["QA Testing", "Functional Testing", "HTML", "CSS"],
+              "Melakukan functional testing pada website, menguji alur fitur & validasi form, mengidentifikasi 30+ temuan bug dan ketidaksesuaian antarmuka, serta menyusun laporan pengujian.",
+            tools: ["QA Testing", "Functional Testing", "Bug Reporting", "HTML", "CSS"],
           },
           {
             name: "Bank J Trust",
@@ -407,8 +441,8 @@ export const PORTFOLIO_DATA = {
           {
             name: "OJK / SIGAP",
             description:
-              "Terlibat dalam analisis dan dokumentasi sistem dengan memahami alur proses serta kebutuhan sistem sesuai project.",
-            tools: ["System Analysis", "Dokumentasi", "Flowchart"],
+              "Melakukan functional testing pada website OJK/SIGAP, verifikasi alur sistem & edge cases, identifikasi bug, serta membantu analisis kebutuhan dan dokumentasi sistem.",
+            tools: ["QA Testing", "Functional Testing", "System Analysis", "Dokumentasi"],
           },
         ],
         responsibilities: [
