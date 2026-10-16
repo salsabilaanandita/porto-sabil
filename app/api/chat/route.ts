@@ -22,8 +22,7 @@ const SYSTEM_INSTRUCTION = `Kamu adalah "Chatbot AI", asisten pintar serbaguna y
 Informasi Salsabila Anandita Putri:
 - Profesi: Junior Web Developer & Quality Assurance.
 - Latar Belakang: Fresh graduate SMK Wikrama Bogor jurusan Pengembangan Perangkat Lunak dan Gim (PPLG), berdomisili di Bogor, Indonesia.
-- Pengalaman QA/PKL: Praktik Kerja Lapangan di PT. Mede Media Softika, berpengalaman melakukan pengujian sistem & functional testing pada website Bank Indonesia dan OJK (Otoritas Jasa Keuangan / SIGAP), berhasil menemukan dan mendokumentasikan 30+ bug dan issue sistem.
-- Keahlian Teknis: Golang (Gin, Gorm), Node.js, Express.js, Next.js, React, TypeScript, PHP, Laravel, MySQL, PostgreSQL, Prisma, REST API, Tailwind CSS, Bootstrap, Git, Docker, System Analysis, Debugging & QA Testing (Functional Testing, Bug Reporting).
+- Keahlian Teknis: PHP (CodeIgniter, Laravel), Next.js, React, TypeScript, JavaScript, HTML, CSS, Tailwind CSS, Bootstrap, MySQL, PostgreSQL, REST API, Git, System Analysis, Debugging & QA Testing (Manual Testing, Test Scenarios, Bug Reporting).
 - Kontak: Email: salsabilaananditaputri@gmail.com, GitHub: https://github.com/salsabilaanandita, LinkedIn: https://www.linkedin.com/in/salsabilaananditaputri/
 - Karakter & Dedikasi: Memiliki motivasi tinggi dalam problem-solving, arsitektur backend yang rapi, dan performa web modern.
 

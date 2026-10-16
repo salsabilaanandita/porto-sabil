@@ -25,11 +25,21 @@ export interface Experience {
   company: string;
   location: string;
   period: string;
+  duration?: string;
   description: string;
+  badges?: string[];
   details?: {
     overview: string;
+    pillars?: {
+      title: string;
+      tag: string;
+      description: string;
+      points: string[];
+    }[];
     projects: {
       name: string;
+      clientOrSystem?: string;
+      role?: string;
       description: string;
       tools: string[];
     }[];
@@ -67,35 +77,36 @@ export const PORTFOLIO_DATA = {
   personal: {
     name: "Salsabila Anandita Putri",
 
-    title: "Junior Web Developer - Quality Assurance",
-    avatar: "/profile.jpg",
+    title: "Junior Web Developer · Quality Assurance",
+    avatar: "/salsabila-formal.jpg",
 
     typewriterRoles: [
-      "Mengembangkan backend service dan RESTful API.",
-      "Membangun aplikasi web dengan frontend dan backend modern.",
-      "Merancang API yang terstruktur dan mudah dikembangkan.",
-      "Menganalisis sistem, melakukan debugging, dan testing aplikasi.",
+      "Junior Web Developer & Quality Assurance.",
+      "Mengembangkan aplikasi web, backend API, & alur sistem.",
+      "Membangun antarmuka web modern, responsif, & interaktif.",
+      "Quality Assurance testing (manual testing & pelaporan bug).",
     ],
 
     tagline:
-      "Junior Web Developer yang berfokus pada pengembangan backend, REST API, database, dan aplikasi web modern.",
-
+      "Junior Web Developer & Quality Assurance yang berfokus pada pengembangan aplikasi web (frontend & backend), perancangan alur sistem, serta pengujian kualitas software (QA) untuk memastikan performa yang andal.",
 
     aboutShort: [
-      "Saya adalah fresh graduate SMK Wikrama Bogor jurusan Pengembangan Perangkat Lunak dan Gim dengan pengalaman pengembangan aplikasi web melalui kegiatan PKL dan berbagai project.",
+      "Fresh graduate dari SMK Wikrama Bogor, jurusan Pengembangan Perangkat Lunak dan Gim, dengan pengalaman langsung membangun aplikasi web melalui magang serta proyek pribadi.",
 
-      "Memiliki kemampuan di bidang frontend dan backend development, analisis sistem, serta QA/testing. Terbiasa bekerja dengan REST API, database, debugging, dan Git/GitHub.",
+      "Memiliki pengalaman di bidang frontend dan backend, analisis sistem, serta Quality Assurance, termasuk bekerja dengan REST API, database, debugging, dan Git/GitHub, dengan kemampuan beradaptasi serta mampu bekerja dalam tim.",
 
-      "Saya memiliki pengalaman menggunakan Node.js, Express.js, Next.js API Routes, Golang, Prisma, JWT, PHP, Laravel, MySQL, PostgreSQL, serta teknologi frontend seperti React, Tailwind CSS, dan Bootstrap.",
+      "Berpengalaman menjalani PKL di PT. Mede Media Softika pada divisi multi-tasking (QA, System Analyst, Frontend, Backend)—melakukan functional & manual testing, pencatatan log error, dokumentasi pengujian, serta implementasi fitur backend dan integrasi API.",
     ],
 
+    phone: "+62 897 9099 974",
     email: "salsabilaananditaputri@gmail.com",
+    resumePdf: "/Salsabila%20Anandita%20Putri.pdf",
 
     github: "https://github.com/salsabilaanandita",
     linkedin: "https://www.linkedin.com/in/salsabilaananditaputri/",
     instagram: "https://instagram.com/_ssalsabiill",
 
-    location: "Bogor, Indonesia",
+    location: "Bogor, Jawa Barat, Indonesia",
   },
 
   stats: [
@@ -123,13 +134,13 @@ export const PORTFOLIO_DATA = {
 
   floatingSkills: [
     {
-      name: "Golang",
+      name: "PHP",
       top: "8%",
       left: "-8%",
       delayClass: "animate-float-1",
     },
     {
-      name: "Node.js",
+      name: "QA Testing",
       top: "12%",
       right: "-8%",
       delayClass: "animate-float-2",
@@ -161,42 +172,83 @@ export const PORTFOLIO_DATA = {
   ],
 
   marqueeSkills: [
+    "Quality Assurance",
+    "Manual Testing",
+    "Test Scenarios",
+    "Bug Reporting",
+    "Functional Testing",
+    "PHP",
+    "CodeIgniter",
     "Next.js",
     "React.js",
     "TypeScript",
     "JavaScript",
-    "Golang",
-    "Tailwind CSS",
-    "Bootstrap",
-    "Vue.js",
-    "Express",
-    "Laravel",
+    "HTML5",
+    "CSS3",
     "PostgreSQL",
-    "Neon.tech",
     "MySQL",
-    "MongoDB",
     "REST APIs",
-    "Lumen",
+    "System Analysis",
+    "Flowchart & ERD",
     "Git",
     "GitHub",
-    "Vercel",
-    "VS Code",
     "Laragon",
+    "VS Code",
     "Antigravity",
   ],
 
   skills: [
     {
-      category: "Frontend",
-      items: ["Next.js", "React.js", "TypeScript", "JavaScript", "Golang", "Bootstrap", "Tailwind CSS", "Vue.js"],
+      category: "Quality Assurance (QA)",
+      items: [
+        "Manual Testing",
+        "Test Scenarios",
+        "Functional Testing",
+        "Bug Reporting",
+        "UI/UX Verification",
+        "Dokumentasi Pengujian",
+      ],
     },
     {
-      category: "Backend",
-      items: ["Express", "Laravel", "Golang", "PostgreSQL", "Neon.tech", "Lumen", "REST APIs", "MySQL", "MongoDB"],
+      category: "Web Development",
+      items: [
+        "PHP",
+        "CodeIgniter",
+        "Next.js",
+        "React.js",
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Tailwind CSS",
+        "Bootstrap",
+        "Laravel",
+      ],
     },
     {
-      category: "Tools & Others",
-      items: ["Git", "GitHub", "Vercel", "Laragon", "VS Code", "Antigravity"],
+      category: "Database & Backend",
+      items: [
+        "PostgreSQL",
+        "MySQL",
+        "REST APIs",
+        "Express",
+        "Neon.tech",
+        "MongoDB",
+      ],
+    },
+    {
+      category: "Analisis Sistem & Tools",
+      items: [
+        "System Analysis",
+        "Flowchart",
+        "ERD",
+        "Class Diagram",
+        "Git",
+        "GitHub",
+        "VS Code",
+        "Laragon",
+        "Vercel",
+      ],
     },
   ],
 
@@ -247,12 +299,12 @@ export const PORTFOLIO_DATA = {
         "Management",
         "Dashboard",
         "Next.js",
-        "Golang",
+        "TypeScript",
         "Tailwind",
         "PostgreSQL",
         "REST API",
       ],
-      stack: ["Next.js", "Golang", "Tailwind", "PostgreSQL", "REST API"],
+      stack: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL", "REST API"],
       githubUrl: "https://github.com/salsabilaanandita/web-money-tracker",
       liveUrl: "https://web-moneytracker.netlify.app/login",
       featured: true,
@@ -389,25 +441,25 @@ export const PORTFOLIO_DATA = {
   gallery: [
     {
       id: "gal-1",
-      title: "Backend & API Development",
+      title: "Quality Assurance (QA) & Manual Testing",
       subtitle:
-        "Mengembangkan backend service dan RESTful API menggunakan teknologi modern.",
+        "Pengujian fungsional sistem strategis (SIGAP, OJK, Bank Indonesia) dengan skenario uji mandiri & pelaporan 30+ bug ke developer.",
       image:
         "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=80",
     },
     {
       id: "gal-2",
-      title: "Web Development",
+      title: "Web Development & Maintenance",
       subtitle:
-        "Membangun aplikasi web dengan kombinasi frontend dan backend yang terstruktur.",
+        "Pemeliharaan aplikasi web menggunakan PHP & CodeIgniter (Bank J Trust), penyesuaian UI dengan HTML & CSS, serta integrasi API.",
       image:
         "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=80",
     },
     {
       id: "gal-3",
-      title: "Problem Solving & Debugging",
+      title: "Analisis Sistem & Dokumentasi Teknis",
       subtitle:
-        "Menganalisis masalah, melakukan debugging, testing, dan meningkatkan kualitas aplikasi.",
+        "Pemodelan arsitektur sistem (Flowchart, ERD, Class Diagram), analisis proses bisnis, dan manajemen basis data PostgreSQL.",
       image:
         "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=80",
     },
@@ -418,39 +470,108 @@ export const PORTFOLIO_DATA = {
       id: "exp-1",
       role: "Software Development & QA Intern (PKL)",
       company: "PT. Mede Media Softika",
-      location: "Indonesia",
-      period: "2025 — 2026",
+      location: "Jakarta Selatan, Indonesia",
+      period: "Januari 2025 – 2026",
+      duration: "7 Bulan",
+      badges: [
+        "Quality Assurance",
+        "Web Development",
+        "Analisis Sistem",
+      ],
       description:
-        "Melaksanakan Praktik Kerja Lapangan (PKL) dengan tanggung jawab lintas divisi (Multi-Tasking) mencakup Quality Assurance (QA) & pengujian fungsionalitas aplikasi, analisis kebutuhan sistem (System Analyst) & penyusunan alur proses, pengembangan antarmuka web yang responsif (Frontend), serta implementasi logika server, basis data, dan integrasi RESTful API (Backend).",
+        "Menjalani Praktik Kerja Lapangan (PKL) selama 7 bulan di PT. Mede Media Softika, menangani bidang Quality Assurance (QA), Web Development, dan Analisis Sistem. Pada QA, memegang manual testing untuk sistem OJK (SIGAP) dan Bank Indonesia dengan dokumen skenario pengujian mandiri dan pelaporan bug ke tim developer. Pada Web Development, membantu pemeliharaan web PHP CodeIgniter (Bank J Trust), penyesuaian UI dengan HTML & CSS, serta pengelolaan basis data PostgreSQL.",
       details: {
         overview:
-          "Pengalaman PKL lintas fungsi dalam Software Development, Quality Assurance, dan System Analysis untuk project internal perusahaan serta kebutuhan klien di sektor perbankan dan institusi keuangan.",
+          "Pengalaman industri selama 7 bulan PKL di PT. Mede Media Softika (Jakarta Selatan) mencakup Quality Assurance (QA), pengembangan web, dan analisis sistem. Di bidang QA, fokus memegang pengujian manual untuk OJK (SIGAP) dan Bank Indonesia menggunakan dokumen skenario pengujian sendiri dan melaporkan bugs/error ke developer. Di bidang web development, membantu pemeliharaan aplikasi web berbasis PHP CodeIgniter serta penyusunan dokumentasi teknis sistem.",
+        pillars: [
+          {
+            title: "Quality Assurance (QA)",
+            tag: "Manual & Functional Testing",
+            description:
+              "Pengujian manual berbasis dokumen skenario pengujian mandiri untuk sistem OJK (SIGAP) dan Bank Indonesia.",
+            points: [
+              "Melakukan manual testing dan functional testing pada sistem OJK (SIGAP) dan Bank Indonesia.",
+              "Merancang dokumen skenario pengujian (test scenario) dan test cases secara mandiri sesuai kebutuhan alur fitur.",
+              "Mengidentifikasi 30+ temuan bug, ketidaksesuaian antarmuka, dan validasi form pada aplikasi.",
+              "Melaporkan bugs and error secara terstruktur kepada tim developer untuk ditindaklanjuti.",
+              "Menyusun dokumentasi hasil pengujian dan catatan alur sistem.",
+            ],
+          },
+          {
+            title: "Web Development",
+            tag: "PHP, CodeIgniter & PostgreSQL",
+            description:
+              "Pemeliharaan dan pembaruan aplikasi web, penyesuaian tampilan antarmuka, dan pengelolaan database.",
+            points: [
+              "Membantu pemeliharaan dan pembaruan aplikasi web menggunakan PHP dan framework CodeIgniter (termasuk proyek Bank J Trust).",
+              "Melakukan penyesuaian tampilan antarmuka menggunakan HTML dan CSS.",
+              "Menghubungkan data dari API ke antarmuka aplikasi dan membantu proses debugging.",
+              "Mendukung pengelolaan dan pengaturan database PostgreSQL.",
+            ],
+          },
+          {
+            title: "Analisis Sistem & Dokumentasi",
+            tag: "Flowchart & ERD",
+            description:
+              "Analisis proses bisnis dan penyusunan dokumentasi arsitektur sistem perangkat lunak.",
+            points: [
+              "Menganalisis proses bisnis dan alur kerja sistem aplikasi.",
+              "Membuat dokumentasi sistem berupa Flowchart, Entity Relationship Diagram (ERD), dan Class Diagram.",
+              "Membantu mendokumentasikan kebutuhan sistem untuk mendukung proses pengembangan.",
+            ],
+          },
+        ],
         projects: [
           {
-            name: "Bank Indonesia",
+            name: "OJK (SIGAP)",
+            clientOrSystem: "OJK / SIGAP",
+            role: "Quality Assurance (QA)",
             description:
-              "Melakukan functional testing pada website, menguji alur fitur & validasi form, mengidentifikasi 30+ temuan bug dan ketidaksesuaian antarmuka, serta menyusun laporan pengujian.",
-            tools: ["QA Testing", "Functional Testing", "Bug Reporting", "HTML", "CSS"],
+              "Melakukan manual testing dan pengujian fungsional pada sistem OJK (SIGAP). Merancang dokumen skenario pengujian mandiri, memverifikasi alur fitur & validasi form, mengidentifikasi ketidaksesuaian antarmuka, serta menyusun dan melaporkan bugs & error ke tim developer.",
+            tools: [
+              "Manual Testing",
+              "Test Scenario",
+              "Functional Testing",
+              "Bug Reporting",
+              "Dokumentasi",
+            ],
+          },
+          {
+            name: "Bank Indonesia",
+            clientOrSystem: "Bank Indonesia",
+            role: "Quality Assurance (QA)",
+            description:
+              "Melaksanakan pengujian fungsional manual berbasis dokumen skenario uji buatan sendiri pada website Bank Indonesia. Menguji responsivitas antarmuka dan alur fitur, menemukan 30+ bug dan error, serta menyusun laporan pengujian terstruktur untuk developer.",
+            tools: [
+              "Manual Testing",
+              "Test Case Design",
+              "Functional Testing",
+              "Bug Reporting",
+            ],
           },
           {
             name: "Bank J Trust",
+            clientOrSystem: "Bank J Trust",
+            role: "Web Development",
             description:
-              "Melanjutkan pengembangan dan maintenance beberapa menu website menggunakan PHP CodeIgniter, menambahkan menu, menampilkan data dari API, dan menghubungkan data dengan tampilan.",
-            tools: ["PHP", "CodeIgniter", "REST API", "HTML", "CSS"],
-          },
-          {
-            name: "OJK / SIGAP",
-            description:
-              "Melakukan functional testing pada website OJK/SIGAP, verifikasi alur sistem & edge cases, identifikasi bug, serta membantu analisis kebutuhan dan dokumentasi sistem.",
-            tools: ["QA Testing", "Functional Testing", "System Analysis", "Dokumentasi"],
+              "Melanjutkan pengembangan dan pemeliharaan menu website menggunakan PHP dan framework CodeIgniter. Menambahkan menu baru, menghubungkan data dari API dengan tampilan, penyesuaian UI menggunakan HTML & CSS, serta membantu pengelolaan query PostgreSQL.",
+            tools: [
+              "PHP",
+              "CodeIgniter",
+              "PostgreSQL",
+              "REST API",
+              "HTML",
+              "CSS",
+            ],
           },
         ],
         responsibilities: [
-          "Membuat dan menganalisis ERD, Class Diagram, serta Flowchart.",
-          "Melakukan QA dan functional testing sesuai requirement.",
-          "Melakukan konfigurasi dan pengelolaan PostgreSQL.",
-          "Membantu maintenance dan pengembangan fitur sistem berjalan.",
-          "Membuat serta memperbarui dokumentasi teknis project.",
+          "Quality Assurance: Melakukan manual testing pada sistem OJK (SIGAP) dan Bank Indonesia menggunakan dokumen skenario pengujian mandiri.",
+          "Bug Reporting: Menemukan dan mendokumentasikan 30+ bug/error serta berkoordinasi langsung dengan tim developer untuk perbaikan.",
+          "Web Development: Membantu pemeliharaan dan pembaruan aplikasi web PHP CodeIgniter (Bank J Trust).",
+          "UI Adjustments: Melakukan penyesuaian tampilan antarmuka menggunakan HTML dan CSS.",
+          "Database Management: Mendukung pengelolaan query dan konfigurasi basis data PostgreSQL.",
+          "Analisis Sistem: Membuat dokumentasi sistem berupa Flowchart, ERD, dan Class Diagram.",
         ],
         evidenceImages: [],
       },

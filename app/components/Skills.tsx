@@ -26,6 +26,14 @@ import {
   LaragonLogo,
   VSCodeLogo,
   AntigravityLogo,
+  QALogo,
+  TestScenarioLogo,
+  BugReportLogo,
+  SystemAnalystLogo,
+  PHPLogo,
+  CodeIgniterLogo,
+  HTML5Logo,
+  CSS3Logo,
 } from "./BrandLogos";
 
 import { skills } from "../data/portfolio-data";
@@ -40,6 +48,31 @@ const skillMetaMap: Record<
     dot: string;
   }
 > = {
+  // Quality Assurance
+  "Quality Assurance": { Logo: QALogo, tag: "QA & Verification", dot: "bg-[#0071E3]" },
+  "Manual Testing": { Logo: QALogo, tag: "QA & Verification", dot: "bg-emerald-500" },
+  "Functional Testing": { Logo: QALogo, tag: "Functional Testing", dot: "bg-teal-500" },
+  "Test Scenarios": { Logo: TestScenarioLogo, tag: "Test Case Design", dot: "bg-emerald-600" },
+  "Bug Reporting": { Logo: BugReportLogo, tag: "Defect Tracking", dot: "bg-rose-500" },
+  "UI/UX Verification": { Logo: QALogo, tag: "UI Quality Audit", dot: "bg-amber-500" },
+  "Dokumentasi Pengujian": { Logo: TestScenarioLogo, tag: "Test Documentation", dot: "bg-sky-500" },
+
+  // System Analysis
+  "System Analysis": { Logo: SystemAnalystLogo, tag: "Architecture & Flow", dot: "bg-violet-500" },
+  "Analisis Sistem": { Logo: SystemAnalystLogo, tag: "Business Process", dot: "bg-violet-500" },
+  "Flowchart": { Logo: SystemAnalystLogo, tag: "Process Mapping", dot: "bg-indigo-500" },
+  "ERD": { Logo: SystemAnalystLogo, tag: "Entity Relationship", dot: "bg-purple-500" },
+  "Class Diagram": { Logo: SystemAnalystLogo, tag: "UML Architecture", dot: "bg-fuchsia-500" },
+
+  // Web Development
+  "PHP": { Logo: PHPLogo, tag: "Server-Side Scripting", dot: "bg-[#777BB4]" },
+  "CodeIgniter": { Logo: CodeIgniterLogo, tag: "PHP MVC Framework", dot: "bg-[#EE4326]" },
+  "HTML": { Logo: HTML5Logo, tag: "Semantic Markup", dot: "bg-[#E34F26]" },
+  "HTML5": { Logo: HTML5Logo, tag: "Semantic Markup", dot: "bg-[#E34F26]" },
+  "CSS": { Logo: CSS3Logo, tag: "Styling & Layout", dot: "bg-[#1572B6]" },
+  "CSS3": { Logo: CSS3Logo, tag: "Styling & Layout", dot: "bg-[#1572B6]" },
+
+  // Existing Frameworks & Languages
   "Next.js": { Logo: NextjsLogo, tag: "Full-Stack Framework", dot: "bg-black" },
   "Next.Js": { Logo: NextjsLogo, tag: "Full-Stack Framework", dot: "bg-black" },
   "React.js": { Logo: ReactLogo, tag: "UI Library", dot: "bg-[#00D8FF]" },
@@ -98,19 +131,7 @@ const marqueeRow2 = allSkills.slice(Math.ceil(allSkills.length / 2));
 export default function Skills() {
   return (
     <section id="skill" className="relative py-28 max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 border-t border-[#e5e5ea] overflow-hidden">
-      {/* Full-Bleed Running Background Typography Ticker Stream */}
-      <div className="absolute inset-x-0 top-1/4 -translate-y-1/2 -z-10 pointer-events-none select-none overflow-hidden opacity-30 sm:opacity-50">
-        <div className="animate-bg-marquee flex items-center gap-8 whitespace-nowrap text-6xl sm:text-8xl lg:text-9xl font-mono font-black text-stroke-bg tracking-tighter">
-          <span>02 TECH STACK</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span className="text-black/[0.04]">OFFICIAL LOGOS &amp; ECOSYSTEM</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span>CAPABILITIES</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span>02 TECH STACK</span>
-          <span className="text-[#0071e3]/30">///</span>
-        </div>
-      </div>
+
 
       {/* Section Header */}
       <ScrollReveal direction="up" delay={0}>
@@ -142,40 +163,36 @@ export default function Skills() {
 
       {/* Running Marquee Ticker Stream */}
       <ScrollReveal direction="up" delay={50}>
-        <div className="mb-12 relative z-10 overflow-hidden py-2 -mx-6 px-6">
+        <div className="mb-12 relative z-10 overflow-hidden py-3 -mx-6 px-6">
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-20 sm:w-40 bg-gradient-to-r from-[#fafafa] via-[#fafafa]/90 to-transparent z-10" />
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-20 sm:w-40 bg-gradient-to-l from-[#fafafa] via-[#fafafa]/90 to-transparent z-10" />
 
-          <div className="animate-marquee flex gap-3 py-1 mb-2">
+          <div className="animate-marquee flex gap-4 py-1.5 mb-2">
             {[...marqueeRow1, ...marqueeRow1, ...marqueeRow1].map((item, idx) => (
               <div
                 key={`m1-${idx}`}
-                className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#e5e5ea] bg-white/80 backdrop-blur-sm shrink-0 hover:border-[#0071e3]/40 transition-colors"
+                className="flex items-center gap-3 px-2 py-1 shrink-0 bg-transparent border-0 hover:opacity-75 transition-opacity"
               >
-                <span className={`w-2 h-2 rounded-full ${item.dot} opacity-70`} />
-                <span className="text-xs font-semibold text-[#111111]">
+                <span className={`w-2 h-2 rounded-full ${item.dot} opacity-80`} />
+                <span className="text-base sm:text-lg font-bold text-[#111111] tracking-tight">
                   {item.name}
                 </span>
-                <span className="text-[9px] font-mono text-[#86868b] uppercase tracking-wider">
-                  Tech Skill
-                </span>
+                <span className="text-[#86868b] font-mono text-sm ml-1">/</span>
               </div>
             ))}
           </div>
 
-          <div className="animate-marquee-reverse flex gap-3 py-1">
+          <div className="animate-marquee-reverse flex gap-4 py-1.5">
             {[...marqueeRow2, ...marqueeRow2, ...marqueeRow2].map((item, idx) => (
               <div
                 key={`m2-${idx}`}
-                className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#e5e5ea] bg-white/80 backdrop-blur-sm shrink-0 hover:border-[#0071e3]/40 transition-colors"
+                className="flex items-center gap-3 px-2 py-1 shrink-0 bg-transparent border-0 hover:opacity-75 transition-opacity"
               >
-                <span className={`w-2 h-2 rounded-full ${item.dot} opacity-70`} />
-                <span className="text-xs font-semibold text-[#111111]">
+                <span className={`w-2 h-2 rounded-full ${item.dot} opacity-80`} />
+                <span className="text-base sm:text-lg font-bold text-[#111111] tracking-tight">
                   {item.name}
                 </span>
-                <span className="text-[9px] font-mono text-[#86868b] uppercase tracking-wider">
-                  Tech Skill
-                </span>
+                <span className="text-[#86868b] font-mono text-sm ml-1">/</span>
               </div>
             ))}
           </div>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, ArrowRight, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import { Experience as ExperienceData, PORTFOLIO_DATA } from "../data/portfolio-data";
 
@@ -11,13 +11,10 @@ export default function Experience() {
 
   return (
     <section id="experience" className="relative py-28 max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 border-t border-[#e5e5ea] overflow-hidden">
-      {/* Static Full-Page Background Typography Watermark */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 -z-10 pointer-events-none select-none flex flex-col items-center justify-center opacity-40 sm:opacity-55 overflow-hidden">
-        <span className="text-[14vw] sm:text-[13vw] font-mono font-black text-stroke-bg tracking-tighter uppercase whitespace-nowrap leading-none text-center">
+      {/* Static Full-Page Background Typography Watermark (Awal di tengah-tengah, Berwarna & Jelas) */}
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 -z-10 pointer-events-none select-none flex flex-col items-center justify-center overflow-hidden">
+        <span className="text-[14vw] sm:text-[13vw] font-mono font-black tracking-tighter uppercase whitespace-nowrap leading-none text-center text-sky-600/[0.09]">
           EXPERIENCE
-        </span>
-        <span className="text-[5vw] sm:text-[4.5vw] font-mono font-bold text-stroke-blue-bg tracking-widest uppercase whitespace-nowrap leading-none mt-2 opacity-60 text-center">
-          ENGINEERING · DEVELOPMENT · SYSTEMS
         </span>
       </div>
 
@@ -34,7 +31,7 @@ export default function Experience() {
               </span>
               <div className="h-[1px] w-12 bg-[#e5e5ea]" />
             </div>
-
+    
             <div className="group inline-block cursor-pointer transition-transform duration-300 hover:-translate-y-2 active:scale-[0.99]">
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#111111] leading-[1.15]">
                 Pengalaman kerja &amp; industri profesional.
@@ -64,7 +61,7 @@ export default function Experience() {
                   {numberString}
                 </div>
 
-                {/* Category / Sub-header bar matching screenshot */}
+                {/* Category / Sub-header bar */}
                 <div className="flex items-center gap-3 mb-6 relative z-10">
                   <span className="text-xs font-mono font-semibold text-[#0071e3]">
                     + {numberString}
@@ -72,6 +69,11 @@ export default function Experience() {
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#6e6e73]">
                     {exp.company}
                   </span>
+                  {exp.duration && (
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#0071e3]/10 text-[#0071e3]">
+                      {exp.duration}
+                    </span>
+                  )}
                   <div className="h-[1px] flex-1 bg-[#e5e5ea] group-hover:bg-[#0071e3]/40 transition-colors" />
                 </div>
 
@@ -81,8 +83,11 @@ export default function Experience() {
                     <span className="text-xs font-mono text-[#6e6e73] block">
                       {numberString}
                     </span>
-                    <span className="text-xs font-mono text-[#6e6e73] block">
+                    <span className="text-xs font-mono text-[#111111] font-semibold block">
                       {exp.period}
+                    </span>
+                    <span className="text-[11px] font-mono text-[#86868b] block">
+                      {exp.location}
                     </span>
                   </div>
 
@@ -91,17 +96,34 @@ export default function Experience() {
                     <h3 className="text-xl sm:text-2xl font-bold text-[#111111] group-hover:text-[#0071e3] transition-colors mb-2">
                       {exp.role}
                     </h3>
-                    <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[#6e6e73] uppercase tracking-wider">
+                    <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[#6e6e73] uppercase tracking-wider mb-4">
                       <span className="text-[#0071e3]">+ —</span>
-                      <span>{exp.company} · {exp.location}</span>
+                      <span>{exp.company}</span>
+                    </div>
+
+                    {/* Skill Badges on Card */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {exp.badges?.map((badge, bIdx) => (
+                        <span
+                          key={bIdx}
+                          className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#f2f2f7] text-[#555555] border border-[#e5e5ea]"
+                        >
+                          {badge}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Right: Description */}
-                  <div className="lg:col-span-5">
-                    <p className="text-xs sm:text-sm text-[#6e6e73] leading-relaxed group-hover:text-[#111111] transition-colors font-normal">
+                  {/* Right: Description & Action */}
+                  <div className="lg:col-span-5 space-y-4">
+                    <p className="text-xs sm:text-sm text-[#555555] leading-relaxed group-hover:text-[#111111] transition-colors font-normal">
                       {exp.description}
                     </p>
+
+                    <div className="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-[#0071e3] group-hover:translate-x-1 transition-transform">
+                      <span>Buka Detail Pengalaman</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -110,47 +132,73 @@ export default function Experience() {
         })}
       </div>
 
+      {/* Experience Detail Modal */}
       {selectedExperience?.details && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm sm:p-6">
-          <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-[#e5e5ea] bg-white p-6 shadow-2xl sm:p-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm sm:p-6 animate-in fade-in duration-200">
+          <div className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-3xl border border-[#e5e5ea] bg-white p-6 shadow-2xl sm:p-8">
+            {/* Close Button */}
             <button
               type="button"
               onClick={() => setSelectedExperience(null)}
               aria-label="Tutup detail pengalaman"
-              className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-[#f2f2f7] text-[#111111] transition hover:bg-[#e5e5ea]"
+              className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-[#f2f2f7] text-[#111111] transition hover:bg-[#e5e5ea] cursor-pointer"
             >
               <X className="h-4 w-4" />
             </button>
 
+            {/* Modal Header */}
             <div className="mb-8 pr-12">
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#0071e3]">
-                {selectedExperience.company} · {selectedExperience.period}
-              </span>
-              <h3 className="mt-2 text-2xl font-bold text-[#111111] sm:text-3xl">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#0071e3]">
+                  {selectedExperience.company} · {selectedExperience.period}
+                </span>
+                {selectedExperience.duration && (
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#0071e3] text-white">
+                    {selectedExperience.duration}
+                  </span>
+                )}
+                <span className="font-mono text-xs text-[#86868b]">
+                  ({selectedExperience.location})
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#111111]">
                 {selectedExperience.role}
               </h3>
-              <p className="mt-4 text-sm leading-relaxed text-[#6e6e73]">
+              <p className="mt-3 text-sm leading-relaxed text-[#555555]">
                 {selectedExperience.details.overview}
               </p>
             </div>
 
             <div className="grid gap-8 lg:grid-cols-2">
+              {/* Left Column: Projects & Systems */}
               <div>
                 <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#111111]">
                   Project &amp; Kontribusi
                 </h4>
-                <div className="space-y-5">
+                <div className="space-y-4">
                   {selectedExperience.details.projects.map((project) => (
-                    <div key={project.name} className="border-l-2 border-[#0071e3] pl-4">
-                      <h5 className="font-bold text-[#111111]">{project.name}</h5>
-                      <p className="mt-1 text-sm leading-relaxed text-[#6e6e73]">
+                    <div
+                      key={project.name}
+                      className="border-l-2 border-[#0071e3] pl-4 py-1"
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        <h5 className="font-bold text-sm text-[#111111]">
+                          {project.name}
+                        </h5>
+                        {project.role && (
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[#f2f2f7] text-[#0071e3] font-medium">
+                            {project.role}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs leading-relaxed text-[#6e6e73] mb-2">
                         {project.description}
                       </p>
-                      <div className="mt-2 flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-1">
                         {project.tools.map((tool) => (
                           <span
                             key={tool}
-                            className="rounded-md bg-[#f2f2f7] px-2 py-1 font-mono text-[10px] text-[#6e6e73]"
+                            className="rounded-md bg-[#f2f2f7] px-2 py-0.5 font-mono text-[9px] text-[#6e6e73]"
                           >
                             {tool}
                           </span>
@@ -161,14 +209,15 @@ export default function Experience() {
                 </div>
               </div>
 
+              {/* Right Column: Responsibilities */}
               <div>
                 <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#111111]">
                   Tanggung Jawab
                 </h4>
-                <ul className="space-y-3 text-sm leading-relaxed text-[#6e6e73]">
-                  {selectedExperience.details.responsibilities.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0071e3]" />
+                <ul className="space-y-3">
+                  {selectedExperience.details.responsibilities.map((item, rIdx) => (
+                    <li key={rIdx} className="flex items-start gap-2 text-xs leading-relaxed text-[#555555]">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0071e3]" />
                       <span>{item}</span>
                     </li>
                   ))}

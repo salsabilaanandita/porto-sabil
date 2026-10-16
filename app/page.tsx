@@ -14,7 +14,7 @@ import CustomCursor from "./components/CustomCursor";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#fafafa] text-[#111111] relative">
+    <div className="min-h-screen bg-transparent text-[#111111] relative">
       <CustomCursor />
       <AnimatedBackground />
       <Preloader />

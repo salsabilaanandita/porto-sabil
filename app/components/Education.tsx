@@ -33,39 +33,7 @@ export default function Education() {
 
   return (
     <section id="education" className="relative py-28 max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 border-t border-[#e5e5ea] overflow-hidden">
-      {/* Full-Bleed Running Background Typography Ticker Stream (Page Background) */}
-      <div className="absolute inset-x-0 top-1/4 -translate-y-1/2 -z-10 pointer-events-none select-none overflow-hidden opacity-30 sm:opacity-50">
-        <div className="animate-bg-marquee flex items-center gap-8 whitespace-nowrap text-6xl sm:text-8xl lg:text-9xl font-mono font-black text-stroke-bg tracking-tighter">
-          <span>06 EDUCATION</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span className="text-black/[0.04]">AWS CERTIFIED</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span>CKA KUBERNETES</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span className="text-black/[0.04]">META DEVELOPER</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span>06 EDUCATION</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span className="text-black/[0.04]">AWS CERTIFIED</span>
-          <span className="text-[#0071e3]/30">///</span>
-        </div>
-      </div>
 
-      {/* Subtle Reverse Running Ticker */}
-      <div className="absolute inset-x-0 bottom-12 -z-10 pointer-events-none select-none overflow-hidden opacity-20 sm:opacity-35">
-        <div className="animate-bg-marquee-reverse flex items-center gap-6 whitespace-nowrap text-4xl sm:text-6xl font-mono font-black text-stroke-blue-bg tracking-tight">
-          <span>INFORMATICS ITB</span>
-          <span>·</span>
-          <span>SOLUTIONS ARCHITECT</span>
-          <span>·</span>
-          <span>CLUSTER ADMIN</span>
-          <span>·</span>
-          <span>INFORMATICS ITB</span>
-          <span>·</span>
-          <span>SOLUTIONS ARCHITECT</span>
-          <span>·</span>
-        </div>
-      </div>
 
       {/* Section Header */}
       <ScrollReveal direction="up" delay={0}>

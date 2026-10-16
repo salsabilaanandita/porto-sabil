@@ -26,12 +26,13 @@ export const metadata: Metadata = {
   keywords: [
     "Salsabila Anandita Putri",
     "Web Developer",
-    "Full-Stack Developer",
-    "Golang",
-    "Node.js",
+    "PHP",
+    "CodeIgniter",
     "Laravel",
     "Next.js",
     "React",
+    "Quality Assurance",
+    "QA Testing",
     "PostgreSQL",
     "MySQL",
     "REST API",
@@ -60,7 +61,7 @@ export default function RootLayout({
       lang="id"
       className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} ${geistMono.variable} scroll-smooth antialiased selection:bg-[#0071e3]/20 selection:text-[#0071e3] font-sans`}
     >
-      <body className="min-h-screen bg-[#fafafa] text-[#111111] flex flex-col font-sans">
+      <body className="min-h-screen bg-[#f4f9fd] text-[#111111] flex flex-col font-sans">
         {children}
       </body>
     </html>

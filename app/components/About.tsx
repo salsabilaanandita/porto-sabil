@@ -8,38 +8,7 @@ import { PORTFOLIO_DATA } from "../data/portfolio-data";
 export default function About() {
   return (
     <section id="about" className="relative py-28 max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 border-t border-[#e5e5ea] overflow-hidden">
-      {/* Full-Bleed Running Background Typography Ticker Stream (Page Background) */}
-      <div className="absolute inset-x-0 top-1/4 -translate-y-1/2 -z-10 pointer-events-none select-none overflow-hidden opacity-30 sm:opacity-50">
-        <div className="animate-bg-marquee flex items-center gap-8 whitespace-nowrap text-6xl sm:text-8xl lg:text-9xl font-mono font-black text-stroke-bg tracking-tighter">
-          <span>01 TENTANG SAYA</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span className="text-black/[0.04]">WEB DEVELOPER</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span>REST API &amp; DATABASE</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span className="text-black/[0.04]">REKAYASA SOFTWARE</span>
-          <span className="text-[#0071e3]/30">///</span>
-          <span>01 TENTANG SAYA</span>
-          <span className="text-[#0071e3]/30">///</span>
 
-        </div>
-      </div>
-
-      {/* Subtle Reverse Running Ticker */}
-      <div className="absolute inset-x-0 bottom-8 -z-10 pointer-events-none select-none overflow-hidden opacity-20 sm:opacity-35">
-        <div className="animate-bg-marquee-reverse flex items-center gap-6 whitespace-nowrap text-4xl sm:text-6xl font-mono font-black text-stroke-blue-bg tracking-tight">
-          <span>01 FILOSOFI</span>
-          <span>·</span>
-          <span>KUALITAS KODE</span>
-          <span>·</span>
-          <span>OPTIMAL &amp; TERSTRUKTUR</span>
-          <span>·</span>
-          <span>01 FILOSOFI</span>
-          <span>·</span>
-          <span>KUALITAS KODE</span>
-          <span>·</span>
-        </div>
-      </div>
 
       {/* Header Eyebrow */}
       <ScrollReveal direction="up" delay={0}>
@@ -139,29 +108,29 @@ export default function About() {
 
 {/* GitHub Repository & Experience Stats */}
 <ScrollReveal direction="up" delay={300}>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+  <div className="grid grid-cols-2 gap-3 sm:gap-4">
     
-    <div className="p-4 sm:p-5 rounded-2xl bg-transparent border border-[#e5e5ea] hover:border-[#0071e3]/40 hover:bg-white/80 hover:-translate-y-1 active:scale-[0.98] transition-all duration-200 text-center sm:text-left">
+    <div className="p-3 sm:p-4 rounded-2xl hover:bg-black/[0.03] hover:-translate-y-1 active:scale-[0.98] transition-all duration-200 text-center sm:text-left group cursor-default">
       <Counter
         targetValue={30}
         suffix="+"
-        className="text-2xl sm:text-3xl font-semibold font-mono text-[#111111] block mb-1"
+        className="font-extrabold text-2xl sm:text-4xl text-[#111111] tracking-tight font-display block mb-1 group-hover:text-[#0071e3] transition-colors"
       />
 
-      <span className="text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-[#6e6e73] block leading-tight">
-        GitHub Repositories
+      <span className="text-[9px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-[#6e6e73] block leading-tight">
+        GITHUB REPOSITORIES
       </span>
     </div>
 
-    <div className="p-4 sm:p-5 rounded-2xl bg-transparent border border-[#e5e5ea] hover:border-[#0071e3]/40 hover:bg-white/80 hover:-translate-y-1 active:scale-[0.98] transition-all duration-200 text-center sm:text-left">
+    <div className="p-3 sm:p-4 rounded-2xl hover:bg-black/[0.03] hover:-translate-y-1 active:scale-[0.98] transition-all duration-200 text-center sm:text-left group cursor-default">
       <Counter
         targetValue={1}
         suffix=""
-        className="text-2xl sm:text-3xl font-semibold font-mono text-[#111111] block mb-1"
+        className="font-extrabold text-2xl sm:text-4xl text-[#111111] tracking-tight font-display block mb-1 group-hover:text-[#0071e3] transition-colors"
       />
 
-      <span className="text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-[#6e6e73] block leading-tight">
-        Pengalaman PKL
+      <span className="text-[9px] sm:text-[11px] font-mono font-semibold uppercase tracking-wider text-[#6e6e73] block leading-tight">
+        PENGALAMAN PKL
       </span>
     </div>
 

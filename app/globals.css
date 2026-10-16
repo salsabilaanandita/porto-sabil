@@ -244,6 +244,49 @@
   will-change: transform;
 }
 
+/* Ethereal Cloud & Sky Floating Animations */
+@keyframes cloudDrift1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(45px, -18px) scale(1.06);
+  }
+}
+
+@keyframes cloudDrift2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1.04);
+  }
+  50% {
+    transform: translate(-40px, 20px) scale(0.96);
+  }
+}
+
+@keyframes cloudDrift3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(0.98);
+  }
+  50% {
+    transform: translate(30px, 24px) scale(1.05);
+  }
+}
+
+.animate-cloud-1 {
+  animation: cloudDrift1 24s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-cloud-2 {
+  animation: cloudDrift2 30s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-cloud-3 {
+  animation: cloudDrift3 28s ease-in-out infinite;
+  will-change: transform;
+}
+
 /* Background Watermark Drift & Shimmer */
 @keyframes watermarkFloat {
   0%, 100% {

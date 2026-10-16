@@ -497,5 +497,109 @@ export function AntigravityLogo({ className = "w-8 h-8" }: LogoProps) {
   );
 }
 
+export function QALogo({ className = "w-8 h-8" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 128 128" fill="none">
+      <rect width="128" height="128" rx="28" fill="#0071E3" />
+      {/* Shield outline */}
+      <path
+        d="M64 26L36 38v28c0 24 16 38 28 44 12-6 28-20 28-44V38L64 26z"
+        stroke="#FFFFFF"
+        strokeWidth="6"
+        strokeLinejoin="round"
+      />
+      {/* Checkmark */}
+      <path
+        d="M52 64l8 8 16-16"
+        stroke="#FFFFFF"
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function TestScenarioLogo({ className = "w-8 h-8" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 128 128" fill="none">
+      <rect width="128" height="128" rx="28" fill="#10B981" />
+      {/* Clipboard */}
+      <rect x="36" y="32" width="56" height="72" rx="8" stroke="#FFFFFF" strokeWidth="6" fill="none" />
+      <path d="M52 28h24v8H52z" fill="#FFFFFF" rx="2" />
+      {/* Checklist items */}
+      <path d="M46 50l4 4 8-8" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="64" y1="50" x2="82" y2="50" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" />
+      <path d="M46 68l4 4 8-8" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="64" y1="68" x2="82" y2="68" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" />
+      <path d="M46 86l4 4 8-8" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="64" y1="86" x2="82" y2="86" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function BugReportLogo({ className = "w-8 h-8" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 128 128" fill="none">
+      <rect width="128" height="128" rx="28" fill="#F43F5E" />
+      {/* Bug Body */}
+      <circle cx="64" cy="44" r="10" fill="#FFFFFF" />
+      <rect x="52" y="52" width="24" height="34" rx="12" fill="#FFFFFF" />
+      {/* Antennae */}
+      <path d="M58 36L48 26M70 36l10-10" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" />
+      {/* Legs */}
+      <path d="M46 58H34M94 58H82M46 70H32M96 70H82M48 82L36 90M80 82l12 8" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function SystemAnalystLogo({ className = "w-8 h-8" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 128 128" fill="none">
+      <rect width="128" height="128" rx="28" fill="#8B5CF6" />
+      {/* ERD / Flowchart nodes */}
+      <rect x="30" y="32" width="28" height="20" rx="4" stroke="#FFFFFF" strokeWidth="4" fill="none" />
+      <rect x="70" y="32" width="28" height="20" rx="4" stroke="#FFFFFF" strokeWidth="4" fill="none" />
+      <rect x="50" y="76" width="28" height="20" rx="4" stroke="#FFFFFF" strokeWidth="4" fill="none" />
+      {/* Connecting lines */}
+      <path d="M44 52v12h40V52M64 64v12" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function PHPLogo({ className = "w-8 h-8" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 128 128" fill="none">
+      <rect width="128" height="128" rx="28" fill="#777BB4" />
+      <ellipse cx="64" cy="64" rx="46" ry="26" stroke="#FFFFFF" strokeWidth="5" />
+      <text
+        x="64"
+        y="72"
+        fill="#FFFFFF"
+        fontSize="24"
+        fontWeight="bold"
+        fontFamily="monospace"
+        textAnchor="middle"
+      >
+        PHP
+      </text>
+    </svg>
+  );
+}
+
+export function CodeIgniterLogo({ className = "w-8 h-8" }: LogoProps) {
+  return (
+    <svg className={className} viewBox="0 0 128 128" fill="none">
+      <rect width="128" height="128" rx="28" fill="#EE4326" />
+      {/* Flame Icon */}
+      <path
+        d="M64 24C60 38 48 46 48 62c0 14 10 24 24 24s24-10 24-24c0-12-6-20-12-28-2 8-8 12-12 12 0-8 6-16 10-24-6 2-14 8-18 16z"
+        fill="#FFFFFF"
+      />
+    </svg>
+  );
+}
+
+
 
 
