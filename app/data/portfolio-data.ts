@@ -306,7 +306,7 @@ export const PORTFOLIO_DATA = {
       ],
       stack: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL", "REST API"],
       githubUrl: "https://github.com/salsabilaanandita/web-money-tracker",
-      liveUrl: "https://web-moneytracker.netlify.app/login",
+      liveUrl: "https://web-money-tracker.vercel.app/login",
       featured: true,
       highlights: [
         "Dashboard interaktif untuk memantau total saldo, pemasukan, dan pengeluaran",
