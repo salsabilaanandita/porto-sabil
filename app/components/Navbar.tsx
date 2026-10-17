@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
+import { Menu, X, ArrowUpRight, Sparkles, Download } from "lucide-react";
 import { PORTFOLIO_DATA } from "../data/portfolio-data";
 
 const navItems = [
@@ -134,6 +134,17 @@ export default function Navbar() {
               className="mt-2 text-center text-xs font-semibold py-2.5 rounded-xl bg-[#0071e3] text-white shadow-xs"
             >
               Kirim Pesan
+            </a>
+            <a
+              href={PORTFOLIO_DATA.personal.resumePdf || "/Salsabila%20Anandita%20Putri.pdf"}
+              download="Salsabila Anandita Putri.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-center text-xs font-semibold py-2.5 rounded-xl border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white transition-colors flex items-center justify-center gap-2"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download Resume (PDF)</span>
             </a>
           </div>
         </div>

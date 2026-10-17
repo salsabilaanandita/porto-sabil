@@ -27,6 +27,15 @@ export default function Footer() {
           <a href="#project" className="hover:text-[#111111] transition-colors">
             Proyek
           </a>
+          <a
+            href={PORTFOLIO_DATA.personal.resumePdf || "/Salsabila%20Anandita%20Putri.pdf"}
+            download="Salsabila Anandita Putri.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#0071e3] font-medium transition-colors"
+          >
+            Resume (PDF)
+          </a>
           <button
             onClick={scrollToTop}
             aria-label="Back to top"
